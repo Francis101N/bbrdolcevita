@@ -1,0 +1,5 @@
+fns generate tracking
+//add delivered date to the tracking details table //
+update tracking table based on the orders table
+//update form on index and tracking shipment //
+the tracking shipmnent form submits to tracking details
