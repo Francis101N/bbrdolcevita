@@ -28,9 +28,10 @@
                         <div class="footer-head">Quick Links</div>
                         <ul>
                             <li><a href="./">>> Home</a></li>
+                            <li><a href="about">>> About Us</a></li>
+                            <li><a href="gallery">>> Gallary</a></li>
                             <li><a href="retreats">>> Retreats & Experience</a></li>
                             <li><a href="accomodations">>> Accommodations</a></li>
-                            <li><a href="about">>> About Us</a></li>
                             <li><a href="">>> Privacy Policy</a></li>
                         </ul>
                     </div>

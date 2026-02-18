@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery | Haut Logistics</title>
+    <title>Gallery | bbrdolcevita</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="dist/css/bootstrap.css">
@@ -37,12 +37,18 @@
 
     <link href="dist/style.css" rel="stylesheet" type="text/css" media="all">
 
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
     <script src="dist/js/wow.min.js"></script>
     <script>
         new WOW().init();
     </script>
 </head>
 <style>
+    body {
+        overflow-x: hidden;
+    }
+
     #navbar {
         font-size: 14px;
         padding-top: 10px;
@@ -113,6 +119,27 @@
             fill: #ffffff !important;
         }
     }
+
+    .gallery-item {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        /* Makes it a perfect square */
+        overflow: hidden;
+        border-radius: 20px;
+        margin: 10px;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* Prevents stretching */
+        transition: transform 0.6s ease;
+    }
+
+    .gallery-item:hover img {
+        transform: scale(1.08);
+    }
 </style>
 
 <body>
@@ -127,10 +154,122 @@
     </div>
     <br>
 
- 
+    <section class="py-5 bg-white">
+        <div class="container">
+
+            <!-- Heading -->
+            <div class="text-center mb-5" data-aos="fade-down">
+                <h3 class="fw-bold">Moments of Elegance</h3>
+                <hr class="mx-auto" style="width:60px;border-top:3px solid #1a9acd;">
+                <p class="text-muted mt-3 mx-auto" style="max-width:700px;">
+                    Discover the beauty, comfort, and unforgettable experiences that define our retreat.
+                    Each moment is thoughtfully designed to inspire relaxation and luxury.
+                </p>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="row g-4">
+
+                <!-- Image 1 -->
+                <div class="col-md-4 col-sm-6" data-aos="fade-right">
+                    <div class="gallery-item">
+                        <img src="./dist/images/DSC05916.jpg" class="img-fluid rounded-4" alt="Gallery Image 1">
+                    </div>
+                </div>
+
+                <!-- Image 2 -->
+                <div class="col-md-4 col-sm-6" data-aos="fade-up">
+                    <div class="gallery-item">
+                        <img src="./dist/images/DSC05947.jpg" class="img-fluid rounded-4" alt="Gallery Image 2">
+                    </div>
+                </div>
+
+                <!-- Image 3 -->
+                <div class="col-md-4 col-sm-6" data-aos="fade-left">
+                    <div class="gallery-item">
+                        <img src="./dist/images/DSC06074.jpg" class="img-fluid rounded-4" alt="Gallery Image 3">
+                    </div>
+                </div>
+
+                <!-- Image 4 -->
+                <div class="col-md-4 col-sm-6" data-aos="fade-right" data-aos-delay="100">
+                    <div class="gallery-item">
+                        <img src="./dist/images/DSC06054.jpg" class="img-fluid rounded-4" alt="Gallery Image 4">
+                    </div>
+                </div>
+
+                <!-- Image 5 -->
+                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="gallery-item">
+                        <img src="./dist/images/DSC06023.jpg" class="img-fluid rounded-4" alt="Gallery Image 5">
+                    </div>
+                </div>
+
+                <!-- Image 6 -->
+                <div class="col-md-4 col-sm-6" data-aos="fade-left" data-aos-delay="100">
+                    <div class="gallery-item">
+                        <img src="./dist/images/DSC06029.jpg" class="img-fluid rounded-4" alt="Gallery Image 6">
+                    </div>
+                </div>
+
+                <!-- Image 7 -->
+                <div class="col-md-4 col-sm-6" data-aos="fade-right" data-aos-delay="200">
+                    <div class="gallery-item">
+                        <img src="./dist/images/DSC05899.jpg" class="img-fluid rounded-4" alt="Gallery Image 7">
+                    </div>
+                </div>
+
+                <!-- Image 8 -->
+                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="gallery-item">
+                        <img src="./dist/images/DSC05965.jpg" class="img-fluid rounded-4" alt="Gallery Image 8">
+                    </div>
+                </div>
+
+                <!-- Image 9 -->
+                <div class="col-md-4 col-sm-6" data-aos="fade-left" data-aos-delay="200">
+                    <div class="gallery-item">
+                        <img src="./dist/images/DSC05969.jpg" class="img-fluid rounded-4" alt="Gallery Image 9">
+                    </div>
+                </div>
+
+                <!-- Image 10 -->
+                <div class="col-md-4 col-sm-6" data-aos="fade-right" data-aos-delay="300">
+                    <div class="gallery-item">
+                        <img src="./dist/images/DSC05978.jpg" class="img-fluid rounded-4" alt="Gallery Image 10">
+                    </div>
+                </div>
+
+                <!-- Image 11 -->
+                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="gallery-item">
+                        <img src="./dist/images/DSC06055.jpg" class="img-fluid rounded-4" alt="Gallery Image 11">
+                    </div>
+                </div>
+
+                <!-- Image 12 -->
+                <div class="col-md-4 col-sm-6" data-aos="fade-left" data-aos-delay="300">
+                    <div class="gallery-item">
+                        <img src="./dist/images/DSC06113.jpg" class="img-fluid rounded-4" alt="Gallery Image 12">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
     <?php include 'inc/footer.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
 
 </body>
 

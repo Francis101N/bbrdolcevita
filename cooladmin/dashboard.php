@@ -172,7 +172,7 @@ if ($bookingsRow = mysqli_fetch_assoc($bookingsQuery)) {
 
 
                     <div class="col-lg-4 col-md-12 mb-4">
-                        <a href="news" class="text-decoration-none">
+                        <a href="#" class="text-decoration-none">
                             <div class="white-box analytics-info d-flex align-items-center justify-content-between">
 
                                 <!-- Left: Icon + Text -->
@@ -202,7 +202,7 @@ if ($bookingsRow = mysqli_fetch_assoc($bookingsQuery)) {
                     </div>
 
                     <div class="col-lg-4 col-md-12 mb-4">
-                        <a href="contacts" class="text-decoration-none">
+                        <a href="#" class="text-decoration-none">
                             <div class="white-box analytics-info d-flex align-items-center justify-content-between">
 
                                 <!-- Left: Icon + Text -->

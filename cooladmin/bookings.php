@@ -164,7 +164,7 @@ $num = mysqli_num_rows($result);
             <div class="page-breadcrumb bg-white">
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title p-2">Messages ( <span class="text-danger"><?= $num; ?></span> )</h4>
+                        <h4 class="page-title p-2">Bookings ( <span class="text-danger"><?= $num; ?></span> )</h4>
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <div class="d-md-flex">
@@ -224,6 +224,7 @@ $num = mysqli_num_rows($result);
                                             <th>Check In</th>
                                             <th>Check Out</th>
                                             <th>No. of Rooms Booked</th>
+                                            <th>Room Type</th>
                                             <th>Suite Name</th>
                                             <th>Total Price</th>
                                             <th>Booking Status</th>
@@ -245,6 +246,7 @@ $num = mysqli_num_rows($result);
                                                 <td><?php echo htmlspecialchars($row['check_in']); ?></td>
                                                 <td><?php echo htmlspecialchars($row['check_out']); ?></td>
                                                 <td><?php echo intval($row['rooms_booked']); ?></td>
+                                                <td><?php echo htmlspecialchars($row['room_type']); ?></td>
                                                 <td><?php echo htmlspecialchars($row['suite_name']); ?></td>
                                                 <td>€<?php echo number_format($row['total_price'], 2); ?></td>
                                                 <td><?php echo htmlspecialchars($row['booking_status']); ?></td>
@@ -299,6 +301,8 @@ $num = mysqli_num_rows($result);
                                                                 <?php echo htmlspecialchars($row['check_out']); ?></p>
                                                             <p><b>Rooms Booked:</b>
                                                                 <?php echo intval($row['rooms_booked']); ?></p>
+                                                            <p><b>Room Type:</b>
+                                                                <?php echo htmlspecialchars($row['room_type']); ?></p>
                                                             <p><b>Total Price:</b>
                                                                 €<?php echo number_format($row['total_price'], 2); ?></p>
                                                             <p><b>Booking Status:</b>
@@ -338,7 +342,7 @@ $num = mysqli_num_rows($result);
                                                                     <label class="form-label fw-semibold">Fullnames</label>
                                                                     <input type="text" name="fullnames" class="form-control"
                                                                         value="<?php echo htmlspecialchars($row['full_name']); ?>"
-                                                                        required>
+                                                                        readonly>
                                                                 </div>
 
                                                                 <!-- Email -->
@@ -346,7 +350,7 @@ $num = mysqli_num_rows($result);
                                                                     <label class="form-label fw-semibold">Email</label>
                                                                     <input type="email" name="email" class="form-control"
                                                                         value="<?php echo htmlspecialchars($row['email']); ?>"
-                                                                        required>
+                                                                        readonly>
                                                                 </div>
 
                                                                 <!-- Phone -->
@@ -354,7 +358,7 @@ $num = mysqli_num_rows($result);
                                                                     <label class="form-label fw-semibold">Phone</label>
                                                                     <input type="text" name="phone" class="form-control"
                                                                         value="<?php echo htmlspecialchars($row['phone']); ?>"
-                                                                        required>
+                                                                        readonly>
                                                                 </div>
 
                                                                 <!-- Check In -->
@@ -362,7 +366,7 @@ $num = mysqli_num_rows($result);
                                                                     <label class="form-label fw-semibold">Check In</label>
                                                                     <input type="text" name="check_in" class="form-control"
                                                                         value="<?php echo htmlspecialchars($row['check_in']); ?>"
-                                                                        required readonly>
+                                                                        readonly>
                                                                 </div>
 
                                                                 <!-- Check Out -->
@@ -370,7 +374,7 @@ $num = mysqli_num_rows($result);
                                                                     <label class="form-label fw-semibold">Check Out</label>
                                                                     <input type="text" name="check_out" class="form-control"
                                                                         value="<?php echo htmlspecialchars($row['check_out']); ?>"
-                                                                        required readonly>
+                                                                        readonly>
                                                                 </div>
 
                                                                 <!-- Rooms Booked -->
@@ -380,7 +384,7 @@ $num = mysqli_num_rows($result);
                                                                     <input type="number" name="rooms_booked"
                                                                         class="form-control" min="1"
                                                                         value="<?php echo intval($row['rooms_booked']); ?>"
-                                                                        required>
+                                                                        readonly>
                                                                 </div>
 
                                                                 <!-- Total Price -->
@@ -390,7 +394,7 @@ $num = mysqli_num_rows($result);
                                                                     <input type="number" name="total_price"
                                                                         class="form-control" min="0" step="any"
                                                                         value="<?php echo htmlspecialchars($row['total_price']); ?>"
-                                                                        required>
+                                                                        readonly>
                                                                 </div>
 
                                                                 <!-- Booking Status -->

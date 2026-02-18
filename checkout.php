@@ -4,14 +4,28 @@ include './connection/connect.php';
 
 $session_id = session_id();
 
-// Fetch cart items for this session
+// Fetch cart items (INCLUDING room_type)
 $stmt = $db->prepare("
-    SELECT c.id AS cart_id, c.rooms, c.checkin_date, c.checkout_date, c.unit_price, c.total_price,
-           s.name, s.image1
+    SELECT 
+        c.id AS cart_id,
+        c.rooms,
+        c.room_type,
+        c.checkin_date,
+        c.checkout_date,
+        c.unit_price,
+        c.total_price,
+        s.name,
+        s.image1
     FROM cart c
-    JOIN suites s ON c.suite_id = s.id
+    INNER JOIN suites s ON c.suite_id = s.id
     WHERE c.session_id = ?
+    ORDER BY c.id DESC
 ");
+
+if (!$stmt) {
+    die("Database error.");
+}
+
 $stmt->bind_param("s", $session_id);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -24,13 +38,13 @@ while ($row = $result->fetch_assoc()) {
     $total_amount += $row['total_price'];
 }
 
-// If cart is empty, redirect back
-if (count($cart_items) === 0) {
+// Redirect if cart empty
+if (empty($cart_items)) {
     echo "<script>alert('Your cart is empty.'); window.location.href='accomodations.php';</script>";
     exit;
 }
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +52,7 @@ if (count($cart_items) === 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retreats | Haut Logistics</title>
+    <title>Retreats | Bbr Dolce vita</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="dist/css/bootstrap.css">
@@ -191,31 +205,62 @@ if (count($cart_items) === 0) {
     <div class="container py-5">
         <h2 class="mb-4">Checkout</h2>
 
-        <div class="card checkout-card shadow-sm">
-            <h4 class="mb-3">Booking Summary</h4>
+        <div class="card checkout-card shadow-sm border-0">
+            <h4 class="mb-4 fw-bold">Booking Summary</h4>
 
             <?php foreach ($cart_items as $item):
                 $checkin = new DateTime($item['checkin_date']);
                 $checkout = new DateTime($item['checkout_date']);
                 $nights = $checkin->diff($checkout)->days;
                 ?>
-                <div class="summary-box d-flex align-items-center">
-                    <p class="p-2"><img src="./cooladmin/uploads/<?= htmlspecialchars($item['image1']) ?>" class="suite-img me-3"
-                            alt="<?= htmlspecialchars($item['name']) ?>"></p>
-                    <div>
-                        <p class="mb-1 fw-bold"><b><?= htmlspecialchars($item['name']) ?></b></p>
-                        <p class="mb-1">Check-in: <?= $item['checkin_date'] ?> | Check-out: <?= $item['checkout_date'] ?> |
-                            Nights: <?= $nights ?></p>
-                        <p class="mb-0">Rooms: <?= $item['rooms'] ?> | Price/Night:
-                            €<?= number_format($item['unit_price'], 2) ?> | Total:
-                            €<?= number_format($item['total_price'], 2) ?></p>
+
+                <div class="summary-box d-flex justify-content-between align-items-center">
+
+                    <div class="d-flex align-items-center">
+                        <img src="./cooladmin/uploads/<?= htmlspecialchars($item['image1']) ?>" class="suite-img me-3"
+                            alt="<?= htmlspecialchars($item['name']) ?>">
+
+                        <div class="p-3">
+                            <h6 class="fw-bold mb-1">
+                                <?= htmlspecialchars($item['name']) ?>
+                            </h6>
+
+                            <small class="text-muted d-block">
+                                <?= htmlspecialchars($item['checkin_date']) ?> →
+                                <?= htmlspecialchars($item['checkout_date']) ?>
+                                (<?= $nights ?> night<?= $nights > 1 ? 's' : '' ?>)
+                            </small>
+
+                            <small class="text-muted">
+                                <?= $item['rooms'] ?> Room(s) •
+                                <span class="badge bg-secondary text-light">
+                                    <?= htmlspecialchars($item['room_type']) ?>
+                                </span>
+                            </small>
+                        </div>
                     </div>
+
+                    <div class="text-end">
+                        <div class="text-muted small">
+                            €<?= number_format($item['unit_price'], 2) ?> / night
+                        </div>
+                        <div class="fw-bold fs-6">
+                            €<?= number_format($item['total_price'], 2) ?>
+                        </div>
+                    </div>
+
                 </div>
+
             <?php endforeach; ?>
 
             <hr>
-            <p class="total-price text-end">Grand Total: €<?= number_format($total_amount, 2) ?></p>
 
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="mb-0 fw-bold">Grand Total</h5>
+                <h4 class="mb-0 text-success fw-bold">
+                    €<?= number_format($total_amount, 2) ?>
+                </h4>
+            </div>
             <h5 class="mt-4">Guest Information</h5>
             <form action="payment" method="POST">
                 <!-- Include hidden fields for cart items -->
@@ -243,6 +288,7 @@ if (count($cart_items) === 0) {
                 </div>
             </form>
         </div>
+
     </div>
 
 

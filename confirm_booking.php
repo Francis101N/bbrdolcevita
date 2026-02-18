@@ -3,6 +3,7 @@ session_start();
 require_once('PHPMailer/PHPMailerAutoload.php');
 include './connection/connect.php';
 
+// Ensure booking session exists
 if (!isset($_SESSION['pending_booking'])) {
     echo "<script>
             alert('Invalid access.');
@@ -18,6 +19,7 @@ $fullname = trim($data['fullname']);
 $email = trim($data['email']);
 $phone = trim($data['phone']);
 
+// Validate required fields
 if (empty($fullname) || empty($email) || empty($phone)) {
     echo "<script>
             alert('Missing booking information.');
@@ -26,14 +28,20 @@ if (empty($fullname) || empty($email) || empty($phone)) {
     exit;
 }
 
+// Start transaction
 $db->begin_transaction();
 
 try {
     $total_booking_amount = 0;
-    $booked_rooms = []; // will store room name, check-in/out, and quantity
+    $booked_rooms = []; // Stores info for email
 
-    // Fetch all cart items for this session
-    $stmt = $db->prepare("SELECT * FROM cart WHERE session_id = ?");
+    // Fetch all cart items (room_type comes from cart)
+    $stmt = $db->prepare("
+        SELECT c.*, s.name 
+        FROM cart c 
+        JOIN suites s ON c.suite_id = s.id 
+        WHERE c.session_id = ?
+    ");
     $stmt->bind_param("s", $session_id);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -44,15 +52,14 @@ try {
 
     while ($cart_item = $result->fetch_assoc()) {
 
-        // Insert booking into bookings table
+        // Insert into bookings table including room_type
         $stmt_insert = $db->prepare("
             INSERT INTO bookings 
-            (suite_id, session_id, full_name, email, phone, check_in, check_out, rooms_booked, total_price, booking_status)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'pending')
+            (suite_id, session_id, full_name, email, phone, check_in, check_out, rooms_booked, room_type, total_price, booking_status)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'pending')
         ");
-
         $stmt_insert->bind_param(
-            "issssssid",
+            "issssssisd",
             $cart_item['suite_id'],
             $session_id,
             $fullname,
@@ -61,75 +68,66 @@ try {
             $cart_item['checkin_date'],
             $cart_item['checkout_date'],
             $cart_item['rooms'],
+            $cart_item['room_type'], // from cart
             $cart_item['total_price']
         );
 
-        $stmt_insert->execute();
+        if (!$stmt_insert->execute()) {
+            throw new Exception("Booking insert failed: " . $stmt_insert->error);
+        }
 
-        // Fetch suite name for email display
-        $suite_stmt = $db->prepare("SELECT name FROM suites WHERE id = ?");
-        $suite_stmt->bind_param("i", $cart_item['suite_id']);
-        $suite_stmt->execute();
-        $suite_result = $suite_stmt->get_result();
-        $suite_row = $suite_result->fetch_assoc();
-
-        // Store info for email
-        $booked_rooms[] = $suite_row['name']
-            . " (Rooms: " . $cart_item['rooms'] . ")<br>"
-            . "Check-In: " . $cart_item['checkin_date']
-            . " | Check-Out: " . $cart_item['checkout_date'];
+        // Prepare room info for email
+        $booked_rooms[] = "<strong>{$cart_item['name']}</strong> ({$cart_item['room_type']}, Rooms: {$cart_item['rooms']})<br>"
+            . "Check-In: {$cart_item['checkin_date']} | Check-Out: {$cart_item['checkout_date']}";
 
         $total_booking_amount += $cart_item['total_price'];
-
-        // Update suite availability
-        // $update_suite = $db->prepare("UPDATE suites SET availability_status = 'Occupied' WHERE id = ?");
-        // $update_suite->bind_param("i", $cart_item['suite_id']);
-        // $update_suite->execute();
     }
 
-    // Delete all cart items for this session
+    // Clear cart
     $delete_cart = $db->prepare("DELETE FROM cart WHERE session_id = ?");
     $delete_cart->bind_param("s", $session_id);
     $delete_cart->execute();
 
     $db->commit();
-    unset($_SESSION['pending_booking']); // clear session
+    unset($_SESSION['pending_booking']); // Clear session
 
-    // Prepare email content
+    // Combine room info for emails
     $room_list = implode("<br><br>", $booked_rooms);
 
-    // User email
-    $userSubject = "Your Booking Details & Confirmation";
+    // === USER EMAIL ===
+    $userSubject = "Your Booking Confirmation - bbrdolcevita";
     $userBody = "
-        <h3>Hello {$fullname},</h3>
-        <p>Thank you for booking with us! Here are your reservation details:</p>
-        <p><strong>Rooms Booked:</strong><br>{$room_list}</p>
-        <p><strong>Total Amount:</strong> €" . number_format($total_booking_amount, 2) . "</p>
-        <br>
-        <p>Please complete your payment using the instructions in your booking portal to confirm your reservation. If you have already made the payment, kindly disregard this message. </p>
-        <br><br>
-        <p>Best regards,<br>bbrdolcevita Team</p>
+        <div style='font-family:Arial,sans-serif; color:#333;'>
+            <h2 style='color:#1f95d2;'>Hello {$fullname},</h2>
+            <p>Thank you for booking with <strong>bbrdolcevita</strong>! Your reservation details are below:</p>
+            <p><strong>Rooms Booked:</strong><br>{$room_list}</p>
+            <p><strong>Total Amount:</strong> €" . number_format($total_booking_amount, 2) . "</p>
+            <p>Please complete your payment using the instructions provided in your booking portal. If you have already made the payment, kindly ignore this email.</p>
+            <br>
+            <p>We look forward to hosting you!<br><strong>bbrdolcevita Team</strong></p>
+        </div>
     ";
 
-    // Admin email
-    $adminSubject = "New Booking from {$fullname}";
+    // === ADMIN EMAIL ===
+    $adminSubject = "New Booking Received from {$fullname}";
     $adminBody = "
-        <h2>New Booking Received</h2>
-        <p><strong>Guest Name:</strong> {$fullname}</p>
-        <p><strong>Email:</strong> {$email}</p>
-        <p><strong>Phone:</strong> {$phone}</p>
-        <p><strong>Rooms Booked:</strong><br>{$room_list}</p>
-        <p><strong>Total Amount:</strong> €" . number_format($total_booking_amount, 2) . "</p>
-        <p><strong>Booking Status:</strong> Pending </p>
-        <br>
-        <p>Click the button below to accept this booking:</p>
-        <a href='http://localhost/bbr/admin_accept_booking.php?session_id={$session_id}' 
-           style='display:inline-block;padding:12px 20px;background:#0d6efd;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;'>
-           Accept Booking
-        </a>
+        <div style='font-family:Arial,sans-serif; color:#333;'>
+            <h2 style='color:#0d6efd;'>New Booking Notification</h2>
+            <p><strong>Guest Name:</strong> {$fullname}</p>
+            <p><strong>Email:</strong> {$email}</p>
+            <p><strong>Phone:</strong> {$phone}</p>
+            <p><strong>Rooms Booked:</strong><br>{$room_list}</p>
+            <p><strong>Total Amount:</strong> €" . number_format($total_booking_amount, 2) . "</p>
+            <p><strong>Status:</strong> Pending</p>
+            <br>
+            <a href='http://localhost/bbr/admin_accept_booking.php?session_id={$session_id}' 
+               style='display:inline-block;padding:12px 20px;background:#0d6efd;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;'>
+               Accept Booking
+            </a>
+        </div>
     ";
 
-    // PHPMailer setup
+    // === PHPMailer ===
     $mail = new PHPMailer(true);
     $mail->isSMTP();
     $mail->Host = 'mail.techbyfrancis.com';
@@ -155,17 +153,16 @@ try {
     $mail->send();
 
     echo "<script>
-            alert('Booking submitted successfully! Please check your email for confirmation.');
+        alert('Booking submitted successfully! Please check your email for confirmation.');
+        setTimeout(function(){
             window.location.href='index.php';
-          </script>";
-    exit;
+        }, 100); // 100ms delay
+      </script>";
 
 } catch (Exception $e) {
     $db->rollback();
-    echo "<script>
-            alert('Booking failed. Please try again.');
-            window.location.href='checkout.php';
-          </script>";
+    echo "<h2>Booking failed!</h2>";
+    echo "<p>Error Details: " . $e->getMessage() . "</p>";
     exit;
 }
 ?>

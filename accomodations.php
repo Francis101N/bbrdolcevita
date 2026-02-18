@@ -12,7 +12,7 @@ $success = $_GET['success'] ?? '';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accommodations | Haut Logistics</title>
+    <title>Accommodations | Bbr Dolce vita</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="dist/css/bootstrap.css">
@@ -246,7 +246,7 @@ $success = $_GET['success'] ?? '';
                 include './connection/connect.php';
 
                 // Fetch suites from database
-                $query = "SELECT * FROM suites ORDER BY date_created DESC";
+                $query = "SELECT * FROM suites ORDER BY date_created ASC";
                 $result = $db->query($query);
 
                 if ($result->num_rows > 0):
@@ -255,7 +255,7 @@ $success = $_GET['success'] ?? '';
                         <div class="col-md-6 col-lg-4 mb-5">
                             <div class="card suite-card shadow-sm">
 
-                                <!-- Carousel for suite images (no arrows) -->
+                                <!-- Carousel for suite images -->
                                 <div id="suiteCarousel<?php echo $suite['id']; ?>"
                                     class="carousel slide carousel-fade suite-img" data-bs-ride="carousel"
                                     data-bs-interval="3500" data-bs-pause="false">
@@ -263,7 +263,8 @@ $success = $_GET['success'] ?? '';
                                     <div class="carousel-inner">
                                         <?php
                                         $images = [$suite['image1'], $suite['image2'], $suite['image3']];
-                                        foreach ($images as $index => $img): ?>
+                                        foreach ($images as $index => $img):
+                                            ?>
                                             <div class="carousel-item <?php echo ($index === 0) ? 'active' : ''; ?>">
                                                 <img src="./cooladmin/uploads/<?php echo htmlspecialchars($img); ?>"
                                                     class="d-block w-100"
@@ -272,28 +273,45 @@ $success = $_GET['success'] ?? '';
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
-
                                 </div>
 
                                 <!-- Suite details -->
                                 <div class="card-body p-4">
 
-                                    <h5 class="fw-bold"><?php echo htmlspecialchars($suite['name']); ?></h5>
-                                    <p class="text-muted small"><?php echo htmlspecialchars($suite['description']); ?></p>
+                                    <h5 class="fw-bold">
+                                        <?php echo htmlspecialchars($suite['name']); ?>
+                                    </h5>
 
-                                    <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <span class="price-tag">€<?php echo number_format($suite['price'], 2); ?> / night</span>
+                                    <p class="text-muted small">
+                                        <?php echo htmlspecialchars($suite['description']); ?>
+                                    </p>
 
-                                        <?php
-                                        $availabilityClass = ($suite['availability_status'] === 'Available') ? 'text-success' : 'text-danger';
-                                        $availabilityText = $suite['availability_status'];
-                                        ?>
-                                        <span class="availability <?php echo $availabilityClass; ?>">
-                                            <?php echo $availabilityText; ?>
+                                    <!-- Price Section -->
+                                    <div class="d-flex justify-content-between align-items-center mb-3 border-top pt-3">
+
+                                        <!-- Single Price (Left) -->
+                                        <span class="fw-semibold text-dark">
+                                            Single: €<?php echo number_format($suite['single_price'], 2); ?> / night
+                                        </span>
+
+                                        <!-- Shared Price (Right) -->
+                                        <span class="fw-semibold text-dark">
+                                            Shared: €<?php echo number_format($suite['shared_price'], 2); ?> / night
+                                        </span>
+
+                                    </div>
+
+                                    <!-- Availability -->
+                                    <?php
+                                    $availabilityClass = ($suite['availability_status'] === 'Available') ? 'text-success' : 'text-danger';
+                                    ?>
+                                    <div class="mb-3 text-center">
+                                        <span class="<?php echo $availabilityClass; ?>">
+                                           <b> <?php echo $suite['availability_status']; ?></b>
                                         </span>
                                     </div>
 
-                                    <!-- Booking form -->
+                                    <!-- Booking Form -->
                                     <form action="add_to_cart" method="POST">
                                         <input type="hidden" name="suite_id" value="<?php echo $suite['id']; ?>">
 
@@ -303,6 +321,7 @@ $success = $_GET['success'] ?? '';
                                                 <input type="date" name="checkin_date" class="form-control modern-input"
                                                     required>
                                             </div>
+
                                             <div class="col-6">
                                                 <label class="form-label fw-semibold">Check-out</label>
                                                 <input type="date" name="checkout_date" class="form-control modern-input"
@@ -310,16 +329,22 @@ $success = $_GET['success'] ?? '';
                                             </div>
                                         </div>
 
+                                        <input type="number" name="rooms" class="form-control modern-input" min="1"
+                                            max="<?php echo intval($suite['available_rooms']); ?>" value="1" readonly hidden>
+
+                                        <!-- Room Type Selection -->
                                         <div class="mb-3">
-                                            <label class="form-label fw-semibold">Number of Rooms</label>
-                                            <input type="number" name="rooms" class="form-control modern-input" min="1"
-                                                max="<?php echo intval($suite['available_rooms']); ?>" value="1" readonly>
+                                            <select name="room_type" class="form-control modern-input" required>
+                                                <option value="Single">Single</option>
+                                                <option value="Shared">Shared</option>
+                                            </select>
                                         </div>
 
                                         <button type="submit" class="book-btn w-100 text-white border-0">
                                             Reserve Suite
                                         </button>
                                     </form>
+
                                 </div>
                             </div>
                         </div>
@@ -332,6 +357,7 @@ $success = $_GET['success'] ?? '';
                 ?>
 
             </div>
+
         </div>
     </section>
 

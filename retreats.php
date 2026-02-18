@@ -55,7 +55,7 @@
     }
 
     .retreat-img {
-        height: 420px;
+        height: 550px;
         object-fit: cover;
         border-radius: 18px;
     }
@@ -337,70 +337,64 @@
 
             <!-- Main Heading -->
             <div class="text-center mb-5" data-aos="fade-down">
-                <h3 class="fw-bold">Gourmet Dining & Exclusive Excursions</h3>
+                <h3 class="fw-bold">Refined Dining & Curated Riviera Experiences</h3>
                 <hr class="mx-auto" style="width:60px;border-top:3px solid #1a9acd;">
-                <p class="mt-3 text-muted mx-auto" style="max-width:800px;">
-                    Indulge in the finest culinary delights of the Italian Riviera while exploring the region's most
-                    enchanting
-                    destinations. Our retreat blends gourmet dining, three-course chef-prepared meals using fresh local
-                    ingredients, and curated excursions that nourish both body and soul.
+                <p class="mt-3 text-muted mx-auto" style="max-width:2000px;">
+                    Experience the elegance of the Italian Riviera through exceptional cuisine and thoughtfully curated
+                    excursions.
+                    Savor chef-crafted three-course meals prepared with the freshest local ingredients, while
+                    discovering
+                    breathtaking coastal destinations designed to inspire relaxation and connection.
                 </p>
             </div>
 
-            <div id="retreatCarousel" class="carousel slide mb-4" data-bs-ride="carousel" data-bs-interval="4000"
-                data-aos="fade-up">
+            <!-- Carousel -->
+            <div id="retreatCarousel" class="carousel slide mb-4" data-bs-ride="carousel" data-bs-interval="3000"
+                data-bs-pause="false" data-aos="fade-up">
 
                 <div class="carousel-inner rounded-4 shadow-sm">
 
                     <div class="carousel-item active">
-                        <img src="./dist/images/resort1.jpg" class="d-block w-100 retreat-img" alt="">
+                        <img src="./dist/images/DSC05990.jpg" class="d-block w-100 h-24 retreat-img"
+                            alt="Riviera Dining Experience">
                     </div>
 
                     <div class="carousel-item">
-                        <img src="./dist/images/resort5.jpg" class="d-block w-100 retreat-img" alt="">
+                        <img src="./dist/images/DSC06074.jpg" class="d-block w-100 retreat-img" alt="Luxury Resort View">
                     </div>
 
                     <div class="carousel-item">
-                        <img src="./dist/images/resort3.jpg" class="d-block w-100 retreat-img" alt="">
+                        <img src="./dist/images/DSC05916.jpg" class="d-block w-100 retreat-img" alt="Coastal Excursion">
                     </div>
 
                     <div class="carousel-item">
-                        <img src="./dist/images/resort4.jpg" class="d-block w-100 retreat-img" alt="">
+                        <img src="./dist/images/DSC06023.jpg" class="d-block w-100 retreat-img"
+                            alt="Italian Riviera Scenery">
                     </div>
 
                     <div class="carousel-item">
-                        <img src="./dist/images/resort2.jpg" class="d-block w-100 retreat-img" alt="">
+                        <img src="./dist/images/DSC06108.jpg" class="d-block w-100 retreat-img" alt="Gourmet Cuisine">
                     </div>
 
                 </div>
 
-                <button class="carousel-control-prev" type="button" data-bs-target="#retreatCarousel"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </button>
-
-                <button class="carousel-control-next" type="button" data-bs-target="#retreatCarousel"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </button>
-
             </div>
 
-            <br><br>
             <!-- Subheading -->
             <div class="text-center mb-3" data-aos="fade-up" data-aos-delay="150">
-                <h4 class="fw-semibold">Culinary Delights & Scenic Destinations</h4>
+                <h4 class="fw-semibold">Culinary Excellence Meets Coastal Beauty</h4>
             </div>
 
             <!-- Quote -->
             <div class="text-center" data-aos="fade-up" data-aos-delay="250">
                 <p class="fst-italic text-muted">
-                    “Enjoy local Ligurian food and explore the charm of the Italian Riviera.”
+                    “Savor authentic Ligurian flavors while discovering the timeless charm of the Italian Riviera.”
                 </p>
             </div>
 
         </div>
     </section>
+
 
 
     <?php include 'inc/footer.php'; ?>

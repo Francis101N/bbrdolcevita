@@ -168,7 +168,7 @@
             </ol>
             <div class="carousel-inner row w-100 mx-auto">
                 <div class="carousel-item col-md-12 active">
-                    <div class="card" style="background-image: url(./dist/images/banner5.jpg);">
+                    <div class="card" style="background-image: url(./dist/images/DSC05916.jpg);">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
@@ -187,7 +187,7 @@
 
                 <!-- Slide 2 -->
                 <div class="carousel-item col-md-12">
-                    <div class="card" style="background-image: url(./dist/images/banner4.jpg);">
+                    <div class="card" style="background-image: url(./dist/images/DSC05947.jpg);">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
@@ -206,7 +206,7 @@
 
                 <!-- Slide 3 -->
                 <div class="carousel-item col-md-12">
-                    <div class="card" style="background-image: url(./dist/images/banner6.jpg);">
+                    <div class="card" style="background-image: url(./dist/images/DSC05977.jpg);">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-7">
@@ -235,8 +235,8 @@
 
                             <!-- Yoga -->
                             <div class="home-about-box-card" id="home-about-box-card1"
-                                style="background-image: url(./dist/images/yoga1.jpg);">
-                                <div class="home-about-box-content">
+                                style="background-image: url(./dist/images/DSC05913.jpg);">
+                                <!-- <div class="home-about-box-content">
                                     <div class="home-about-box-content-img">
                                         <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#7A9E9B"
                                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -249,13 +249,13 @@
                                     <div class="home-about-box-content-head">Yoga Practice</div>
                                     <p>Daily movement for balance and calm.</p>
                                     <a href="yoga.php">Discover more &gt;&gt;</a>
-                                </div>
+                                </div> -->
                             </div>
 
                             <!-- Pilates -->
                             <div class="home-about-box-card" id="home-about-box-card2"
-                                style="background-image: url(./dist/images/yoga3.jpg);">
-                                <div class="home-about-box-content">
+                                style="background-image: url(./dist/images/DSC06054.jpg);">
+                                <!-- <div class="home-about-box-content">
                                     <div class="home-about-box-content-img">
                                         <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#7A9E9B"
                                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -269,13 +269,13 @@
                                     <div class="home-about-box-content-head">Lotte Berk Pilates</div>
                                     <p>Low-impact sessions to sculpt and energize.</p>
                                     <a href="pilates.php">Discover more &gt;&gt;</a>
-                                </div>
+                                </div> -->
                             </div>
 
                             <!-- Serenity -->
                             <div class="home-about-box-card" id="home-about-box-card3"
-                                style="background-image: url(./dist/images/yoga4.jpg);">
-                                <div class="home-about-box-content">
+                                style="background-image: url(./dist/images/DSC05978.jpg);">
+                                <!-- <div class="home-about-box-content">
                                     <div class="home-about-box-content-img">
                                         <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#7A9E9B"
                                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -286,7 +286,7 @@
                                     <div class="home-about-box-content-head">Serenity & Restoration</div>
                                     <p>Intentional rest to restore harmony.</p>
                                     <a href="serenity.php">Discover more &gt;&gt;</a>
-                                </div>
+                                </div> -->
                             </div>
 
                         </div>
@@ -604,15 +604,15 @@
 
         <div class="experience-gallery d-flex justify-content-center flex-wrap gap-3">
             <div class="img-card slide-left">
-                <img src="dist/images/yoga8.jpg" alt="Yoga experience">
+                <img src="dist/images/DSC05916.jpg" alt="Yoga experience">
             </div>
 
             <div class="img-card slide-up highlight">
-                <img src="dist/images/yoga2.jpg" alt="Yoga retreat">
+                <img src="dist/images/DSC06074.jpg" alt="Yoga retreat">
             </div>
 
             <div class="img-card slide-right">
-                <img src="dist/images/yoga4.jpg" alt="Wellness retreat">
+                <img src="dist/images/DSC06029.jpg" alt="Wellness retreat">
             </div>
         </div>
 
@@ -677,7 +677,7 @@
                 </div>
                 <div class="col-md-5">
                     <div class="about_company-right carder">
-                        <img src="./dist/images/yoga1.jpg" class="img-fluid img_carder" style="height:550px">
+                        <img src="./dist/images/DSC05899.jpg" class="img-fluid img_carder" style="height:550px">
                     </div>
                 </div>
             </div>
@@ -811,8 +811,8 @@
                                                 <div class="home_testimonial-right-content-body">
                                                     <p>
                                                         This retreat helped me slow down and reconnect with myself.
-                                                        Everything—from the mindful practices to the serene living
-                                                        spaces—was thoughtfully designed. I left feeling lighter,
+                                                        Everything from the mindful practices to the serene living
+                                                        spaces was thoughtfully designed. I left feeling lighter,
                                                         calmer,
                                                         and more focused.
                                                     </p>

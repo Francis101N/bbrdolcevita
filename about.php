@@ -238,7 +238,7 @@
 
                 <div class="col-md-5">
                     <div class="about_company-right carder">
-                        <img src="./dist/images/banner.jpg" class="img-fluid img_carder">
+                        <img src="./dist/images/DSC06023.jpg" class="img-fluid img_carder">
                     </div>
                 </div>
             </div>

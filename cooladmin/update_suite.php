@@ -13,7 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['id'])) {
     // Get POST values
     $suite_name = trim($_POST['suite_name']);
     $suite_description = trim($_POST['suite_description']);
-    $suite_price = floatval($_POST['suite_price']);
+    $single_price = floatval($_POST['single_price']);
+    $shared_price = floatval($_POST['shared_price']);
     $max_occupancy = intval($_POST['max_occupancy']);
     $total_rooms = intval($_POST['total_rooms']);
     $available_rooms = intval($_POST['available_rooms']);
@@ -80,13 +81,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['id'])) {
     }
 
     // Corrected variables for bind_param
-    $stmt = $db->prepare("UPDATE suites SET name=?, description=?, price=?, image1=?, image2=?, image3=?, max_occupancy=?, total_rooms=?, available_rooms=?, availability_status=? WHERE id=?");
+    $stmt = $db->prepare("UPDATE suites SET name=?, description=?, single_price=?, shared_price=?, image1=?, image2=?, image3=?, max_occupancy=?, total_rooms=?, available_rooms=?, availability_status=? WHERE id=?");
 
     $stmt->bind_param(
-        "ssdsssiiisi",
+        "ssddsssiiisi",
         $suite_name,
         $suite_description,
-        $suite_price,
+        $single_price,
+        $shared_price,
         $img1Result['name'],
         $img2Result['name'],
         $img3Result['name'],

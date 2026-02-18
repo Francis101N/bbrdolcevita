@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once('PHPMailer/PHPMailerAutoload.php');
 include './connection/connect.php';
 
 // Make sure it's a POST request
@@ -50,9 +51,78 @@ $stmt->bind_param(
 );
 
 if ($stmt->execute()) {
-    $_SESSION['success'] = "Booking updated successfully.";
-    header("Location: bookings.php"); // redirect back to bookings list
+
+    // === SEND EMAIL TO USER BASED ON STATUS ===
+    $mail = new PHPMailer(true);
+    $mail->isSMTP();
+    $mail->Host = 'mail.techbyfrancis.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'portfolio@techbyfrancis.com';
+    $mail->Password = 'TECHbyfrancis101$$';
+    $mail->SMTPSecure = 'ssl';
+    $mail->Port = 465;
+    $mail->setFrom('portfolio@techbyfrancis.com', 'bbrdolcevita Notification');
+    $mail->isHTML(true);
+    $mail->addAddress($email);
+
+    // Set subject and body based on status
+    switch (strtolower($booking_status)) {
+        case 'confirmed':
+            $subject = "Your Booking is Confirmed - bbrdolcevita";
+            $body = "
+                <h3>Hello {$fullnames},</h3>
+                <p>Your booking has been <strong>confirmed</strong>! Here are the details:</p>
+                <p><strong>Total Amount:</strong> €" . number_format($total_price, 2) . "</p>
+                <p>We look forward to hosting you!</p>
+                <br>
+                <p>Best regards,<br>bbrdolcevita Team</p>
+            ";
+            break;
+
+        case 'pending':
+            $subject = "Your Booking is Pending - bbrdolcevita";
+            $body = "
+                <h3>Hello {$fullnames},</h3>
+                <p>Your booking is currently <strong>pending</strong>. Please complete the payment to confirm your reservation.</p>
+                <p><strong>Total Amount:</strong> €" . number_format($total_price, 2) . "</p>
+                <br>
+                <p>Best regards,<br>bbrdolcevita Team</p>
+            ";
+            break;
+
+        case 'cancelled':
+        case 'canceled':
+            $subject = "Your Booking Has Been Cancelled - bbrdolcevita";
+            $body = "
+                <h3>Hello {$fullnames},</h3>
+                <p>Your booking has been <strong>cancelled</strong>. If this was a mistake, please contact us immediately.</p>
+                <p><strong>Total Amount:</strong> €" . number_format($total_price, 2) . "</p>
+                <br>
+                <p>Best regards,<br>bbrdolcevita Team</p>
+            ";
+            break;
+
+        default:
+            $subject = "Booking Update - bbrdolcevita";
+            $body = "
+                <h3>Hello {$fullnames},</h3>
+                <p>Your booking status has been updated to <strong>{$booking_status}</strong>.</p>
+                <p><strong>Total Amount:</strong> €" . number_format($total_price, 2) . "</p>
+                <br>
+                <p>Best regards,<br>bbrdolcevita Team</p>
+            ";
+            break;
+    }
+
+    $mail->Subject = $subject;
+    $mail->Body = $body;
+    $mail->send();
+
+    $_SESSION['success'] = "Booking updated successfully and email sent to the user.";
+    header("Location: bookings.php");
     exit;
+
 } else {
     die("Error updating booking: " . $stmt->error);
 }
+?>

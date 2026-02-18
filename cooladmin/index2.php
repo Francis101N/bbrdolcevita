@@ -6,7 +6,7 @@ if (!isset($_SESSION['admin_user'])) {
     include('index.php');
     exit;
 }
-header("refresh:5;url=dashboard");
+header("refresh:3;url=dashboard");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -122,7 +122,7 @@ header("refresh:5;url=dashboard");
         </p>
 
         <p class="redirect-text">
-            You will be redirected to your dashboard in <strong>5 seconds</strong>.<br>
+            You will be redirected to your dashboard in <strong>3 seconds</strong>.<br>
             If not redirected,
             <a href="dashboard">click here</a>.
         </p>

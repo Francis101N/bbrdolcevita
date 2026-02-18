@@ -180,16 +180,27 @@ include './connection/connect.php';
 
 
     <?php
+    session_start();
+    include './connection/connect.php';
 
     $session_id = session_id();
 
-    // Fetch cart items from cart table (use stored unit_price and total_price)
+    // Fetch cart items (including room_type)
     $stmt = $db->prepare("
-    SELECT c.id AS cart_id, c.rooms, c.checkin_date, c.checkout_date, c.unit_price, c.total_price,
-           s.name, s.image1
+    SELECT 
+        c.id AS cart_id,
+        c.rooms,
+        c.room_type,
+        c.checkin_date,
+        c.checkout_date,
+        c.unit_price,
+        c.total_price,
+        s.name,
+        s.image1
     FROM cart c
-    JOIN suites s ON c.suite_id = s.id
+    INNER JOIN suites s ON c.suite_id = s.id
     WHERE c.session_id = ?
+    ORDER BY c.id DESC
 ");
     $stmt->bind_param("s", $session_id);
     $stmt->execute();
@@ -202,74 +213,130 @@ include './connection/connect.php';
         $total_amount += $row['total_price'];
         $cart_items[] = $row;
     }
-
     ?>
 
     <div class="container my-5">
-        <h2 class="mb-4">Your Booking Cart</h2>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="fw-bold">Your Booking Cart</h3>
+            <span class="badge bg-success fs-6">
+                <?= count($cart_items) ?> Item(s)
+            </span>
+        </div>
 
-        <?php if (count($cart_items) === 0): ?>
-            <div class="alert alert-info">Your cart is empty.</div>
+        <?php if (empty($cart_items)): ?>
+            <div class="alert alert-info shadow-sm">
+                Your booking cart is currently empty.
+            </div>
         <?php else: ?>
-            <div class="table-responsive shadow-sm">
-                <table class="table table-hover align-middle">
-                    <thead class="table-light">
-                        <tr>
-                            <th scope="col">Suite</th>
-                            <th scope="col">Check-in</th>
-                            <th scope="col">Check-out</th>
-                            <th scope="col">Rooms</th>
-                            <th scope="col">Price/Night (€)</th>
-                            <th scope="col">Total (€)</th>
-                            <th scope="col">Remove</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($cart_items as $item): ?>
-                            <tr>
-                                <td class="d-flex align-items-center">
-                                    <p class="p-3"><?= htmlspecialchars($item['name']) ?></p>
-                                    <img src="./cooladmin/uploads/<?= htmlspecialchars($item['image1']) ?>"
-                                        alt="<?= htmlspecialchars($item['name']) ?>"
-                                        style="width:60px; height:60px; object-fit:cover; border-radius:5px;" class="me-2">
 
-                                </td>
-                                <td><?= htmlspecialchars($item['checkin_date']) ?></td>
-                                <td><?= htmlspecialchars($item['checkout_date']) ?></td>
-                                <td><?= $item['rooms'] ?></td>
-                                <td>€<?= number_format($item['unit_price'], 2) ?></td>
-                                <td>€<?= number_format($item['total_price'], 2) ?></td>
-                                <td>
-                                    <form action="remove_from_cart.php" method="POST">
-                                        <input type="hidden" name="cart_id" value="<?= $item['cart_id'] ?>">
-                                        <button type="submit" class="btn btn-sm btn-outline-danger">
-                                            <i class="bi bi-trash"></i> Remove
-                                        </button>
-                                    </form>
-                                </td>
+            <div class="card shadow-sm border-0">
+                <div class="table-responsive">
+                    <table class="table align-middle mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Suite</th>
+                                <th>Dates</th>
+                                <th>Rooms</th>
+                                <th>Type</th>
+                                <th>Price/Night</th>
+                                <th>Total</th>
+                                <th></th>
                             </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="5" class="text-end fw-bold">Total Amount:</td>
-                            <td class="fw-bold">€<?= number_format($total_amount, 2) ?></td>
-                            <td></td>
-                        </tr>
-                    </tfoot>
-                </table>
+                        </thead>
+
+                        <tbody>
+                            <?php foreach ($cart_items as $item): ?>
+                                <tr>
+
+                                    <!-- Suite Info -->
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <img src="./cooladmin/uploads/<?= htmlspecialchars($item['image1']) ?>"
+                                                alt="<?= htmlspecialchars($item['name']) ?>"
+                                                style="width:70px; height:70px; object-fit:cover; border-radius:10px;"
+                                                class="me-3 shadow-sm">
+
+                                            <div>
+                                                <h6 class="mb-1 fw-semibold p-3">
+                                                    <?= htmlspecialchars($item['name']) ?>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                    <!-- Dates -->
+                                    <td>
+                                        <small class="text-muted d-block">
+                                            <b> Check-in:</b>
+                                            <?= htmlspecialchars($item['checkin_date']) ?>
+                                        </small>
+                                        <small class="text-muted">
+                                            <b>Check-out:</b>
+                                            <?= htmlspecialchars($item['checkout_date']) ?>
+                                        </small>
+                                    </td>
+
+                                    <!-- Rooms -->
+                                    <td class="fw-semibold">
+                                        <?= $item['rooms'] ?>
+                                    </td>
+
+                                    <!-- Room Type -->
+                                    <td>
+                                        <span class="badge bg-secondary text-white">
+                                            <?= htmlspecialchars($item['room_type']) ?>
+                                        </span>
+                                    </td>
+
+                                    <!-- Price -->
+                                    <td>
+                                        €<?= number_format($item['unit_price'], 2) ?>
+                                    </td>
+
+                                    <!-- Total -->
+                                    <td class="fw-bold text-dark">
+                                        €<?= number_format($item['total_price'], 2) ?>
+                                    </td>
+
+                                    <!-- Remove -->
+                                    <td class="text-end">
+                                        <form action="remove_from_cart.php" method="POST">
+                                            <input type="hidden" name="cart_id" value="<?= $item['cart_id'] ?>">
+                                            <button type="submit" class="btn btn-sm btn-outline-danger rounded-pill">
+                                                Remove
+                                            </button>
+                                        </form>
+                                    </td>
+
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Cart Footer -->
+                <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+
+                    <h5 class="fw-bold mb-0">
+                        Total Amount:
+                    </h5>
+
+                    <h4 class="fw-bold text-primary mb-0">
+                        €<?= number_format($total_amount, 2) ?>
+                    </h4>
+
+                </div>
             </div>
 
+            <!-- Checkout Button -->
             <div class="text-end mt-4">
-                <a href="checkout" class="btn btn-primary btn-lg">
+                <a href="checkout" class="btn btn-primary btn-lg px-5 rounded-pill shadow-sm">
                     Proceed to Checkout
                 </a>
             </div>
+
         <?php endif; ?>
     </div>
-
-
-
 
     <?php include 'inc/footer.php'; ?>
 

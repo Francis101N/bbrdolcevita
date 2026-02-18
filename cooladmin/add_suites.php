@@ -77,10 +77,16 @@ $success = $_GET['success'] ?? '';
                 focus:outline-none focus:ring-2 focus:ring-[#87ceeb]"></textarea>
             </div>
 
-            <!-- Price -->
+            <!-- Single Price -->
             <div>
-                <label class="block text-gray-700 font-semibold mb-2">Price</label>
-                <input type="number" name="suite_price" min="0" step="any" required class="w-full p-3 border border-gray-300 rounded-lg
+                <label class="block text-gray-700 font-semibold mb-2">Single Room Price</label>
+                <input type="number" name="single_price" min="0" step="any" required class="w-full p-3 border border-gray-300 rounded-lg
+                focus:outline-none focus:ring-2 focus:ring-[#87ceeb]">
+            </div>
+            <!-- Shared Price -->
+            <div>
+                <label class="block text-gray-700 font-semibold mb-2">Shared Room Price</label>
+                <input type="number" name="shared_price" min="0" step="any" required class="w-full p-3 border border-gray-300 rounded-lg
                 focus:outline-none focus:ring-2 focus:ring-[#87ceeb]">
             </div>
 

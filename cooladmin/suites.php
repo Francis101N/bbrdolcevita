@@ -3,6 +3,9 @@ session_start();
 include('connection/connect.php');
 include('fns.php');
 
+$error = "";
+$success = "";
+
 if (!isset($_SESSION['admin_user'])) {
     include('index.php');
     exit;
@@ -188,15 +191,18 @@ $num = mysqli_num_rows($result);
                     <div class="col-sm-12">
                         <div class="white-box">
 
-                            <?php if (!empty($error) || !empty($_GET['error'])): ?>
-                                <div class="alert alert-danger"><?php echo $error; ?></div>
-                            <?php endif; ?>
-
-                            <?php if (!empty($success) || !empty($_GET['success'])): ?>
-                                <div class="alert alert-success">
-                                    <?php echo $success ?? $_GET['success']; ?>
+                            <?php if (!empty($_GET['error'])): ?>
+                                <div class="alert alert-danger">
+                                    <?php echo htmlspecialchars($_GET['error']); ?>
                                 </div>
                             <?php endif; ?>
+
+                            <?php if (!empty($_GET['success'])): ?>
+                                <div class="alert alert-success">
+                                    <?php echo htmlspecialchars($_GET['success']); ?>
+                                </div>
+                            <?php endif; ?>
+
 
                             <div class="table-responsive">
                                 <table class="table table-bordered table-hover text-nowrap">
@@ -205,7 +211,8 @@ $num = mysqli_num_rows($result);
                                             <th>S/N</th>
                                             <th>Name</th>
                                             <th>Description</th>
-                                            <th>Price</th>
+                                            <th>Single_price</th>
+                                            <th>Shared_price</th>
                                             <th>Suite Image1</th>
                                             <th>Suite Image2</th>
                                             <th>Suite Image3</th>
@@ -230,7 +237,8 @@ $num = mysqli_num_rows($result);
 
                                                 <td><?php echo htmlspecialchars($row['description']); ?></td>
 
-                                                <td><?php echo htmlspecialchars($row['price']); ?></td>
+                                                <td><?php echo htmlspecialchars($row['single_price']); ?></td>
+                                                <td><?php echo htmlspecialchars($row['shared_price']); ?></td>
 
                                                 <td>
                                                     <?php if (!empty($row['image1'])): ?>
@@ -322,7 +330,11 @@ $num = mysqli_num_rows($result);
 
                                                             <p><b>DESCRIPTION:</b> <?php echo nl2br($row['description']); ?>
                                                             </p>
-                                                            <p><b>PRICE:</b> <?php echo htmlspecialchars($row['price']); ?>
+                                                            <p><b>SINGLE PRICE:</b>
+                                                                <?php echo htmlspecialchars($row['single_price']); ?>
+                                                            </p>
+                                                            <p><b>SHARED PRICE:</b>
+                                                                <?php echo htmlspecialchars($row['shared_price']); ?>
                                                             </p>
                                                             <p><b>MAX OCCUPANCY:</b>
                                                                 <?php echo htmlspecialchars($row['max_occupancy']); ?></p>
@@ -331,7 +343,8 @@ $num = mysqli_num_rows($result);
                                                             <p><b>AVAILABLE ROOMS:</b>
                                                                 <?php echo htmlspecialchars($row['available_rooms']); ?></p>
                                                             <p><b>AVAILABILITY STATUS:</b>
-                                                                <?php echo htmlspecialchars($row['availability_status']); ?></p>
+                                                                <?php echo htmlspecialchars($row['availability_status']); ?>
+                                                            </p>
 
                                                             <p class="text-muted"><b>DATE CREATED:</b>
                                                                 <?php echo htmlspecialchars($row['date_created']); ?></p>
@@ -382,12 +395,22 @@ $num = mysqli_num_rows($result);
                                                                         required><?php echo htmlspecialchars($row['description']); ?></textarea>
                                                                 </div>
 
-                                                                <!-- Suite Price -->
+                                                                <!-- Suite Single Price -->
                                                                 <div class="mb-3">
-                                                                    <label class="form-label fw-semibold">Price (€)</label>
-                                                                    <input type="number" name="suite_price"
+                                                                    <label class="form-label fw-semibold">Single Room Price
+                                                                        (€)</label>
+                                                                    <input type="number" name="single_price"
                                                                         class="form-control" min="0" step="any"
-                                                                        value="<?php echo htmlspecialchars($row['price']); ?>"
+                                                                        value="<?php echo htmlspecialchars($row['single_price']); ?>"
+                                                                        required>
+                                                                </div>
+                                                                <!-- Suite Shared Price -->
+                                                                <div class="mb-3">
+                                                                    <label class="form-label fw-semibold">Shared Room Price
+                                                                        (€)</label>
+                                                                    <input type="number" name="shared_price"
+                                                                        class="form-control" min="0" step="any"
+                                                                        value="<?php echo htmlspecialchars($row['shared_price']); ?>"
                                                                         required>
                                                                 </div>
 

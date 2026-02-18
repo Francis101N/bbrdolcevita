@@ -23,7 +23,7 @@ $cart_count = $row['total_items'] ?? 0;
     <div class="d-flex align-items-center">
 
       <!-- Cart Icon (VISIBLE ONLY ON SMALL SCREENS) -->
-      <a href="cart" class="nav-link d-md-none mr-2 p-0">
+      <a href="cart" class="nav-link d-md-none position-relative mr-2 p-0">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
           style="cursor:pointer;">
           <path d="M3 3H5L6.5 14H18.5L21 6H6" stroke="#1a9acd" stroke-width="2" stroke-linecap="round"
@@ -31,6 +31,13 @@ $cart_count = $row['total_items'] ?? 0;
           <circle cx="9" cy="20" r="1.5" fill="#1a9acd" />
           <circle cx="18" cy="20" r="1.5" fill="#1a9acd" />
         </svg>
+
+        <?php if ($cart_count > 0): ?>
+          <span class="badge bg-danger rounded-circle position-absolute d-flex align-items-center justify-content-center"
+            style="font-size: 0.7rem; width: 18px; height: 18px; top: -6px; right: -6px;">
+            <?= $cart_count ?>
+          </span>
+        <?php endif; ?>
       </a>
 
       <!-- Toggler -->
@@ -45,6 +52,7 @@ $cart_count = $row['total_items'] ?? 0;
 
     </div>
 
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
 
@@ -52,7 +60,7 @@ $cart_count = $row['total_items'] ?? 0;
         <li class="nav-item"><a class="nav-link" href="about">About Us</a></li>
         <li class="nav-item"><a class="nav-link" href="retreats">Retreats</a></li>
         <li class="nav-item"><a class="nav-link" href="schedule">Schedule</a></li>
-        <li class="nav-item"><a class="nav-link" href="gallery">Gallary</a></li>
+        <!-- <li class="nav-item"><a class="nav-link" href="gallery">Gallary</a></li> -->
         <li class="nav-item"><a class="nav-link" href="accomodations">Accommodations</a></li>
 
         <!-- Cart Icon (VISIBLE ONLY ON DESKTOP) -->
