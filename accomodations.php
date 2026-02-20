@@ -51,6 +51,10 @@ $success = $_GET['success'] ?? '';
     </script>
 </head>
 <style>
+    body {
+        overflow-x: hidden;
+    }
+
     #navbar {
         font-size: 14px;
         padding-top: 10px;
@@ -181,7 +185,7 @@ $success = $_GET['success'] ?? '';
     <div class="banner">
         <div class="overlay"></div>
         <div class="container">
-            <div class="banner-head">Accommodations</div>
+            <div class="banner-head">Suites</div>
         </div>
     </div>
     <br><br><br>
@@ -291,12 +295,12 @@ $success = $_GET['success'] ?? '';
 
                                         <!-- Single Price (Left) -->
                                         <span class="fw-semibold text-dark">
-                                            Single: €<?php echo number_format($suite['single_price'], 2); ?> / night
+                                            Shared: €<?php echo number_format($suite['shared_price'], 2); ?> / night
                                         </span>
 
                                         <!-- Shared Price (Right) -->
                                         <span class="fw-semibold text-dark">
-                                            Shared: €<?php echo number_format($suite['shared_price'], 2); ?> / night
+                                            Single: €<?php echo number_format($suite['single_price'], 2); ?> / night
                                         </span>
 
                                     </div>
@@ -307,7 +311,7 @@ $success = $_GET['success'] ?? '';
                                     ?>
                                     <div class="mb-3 text-center">
                                         <span class="<?php echo $availabilityClass; ?>">
-                                           <b> <?php echo $suite['availability_status']; ?></b>
+                                            <b> <?php echo $suite['availability_status']; ?></b>
                                         </span>
                                     </div>
 
@@ -319,13 +323,13 @@ $success = $_GET['success'] ?? '';
                                             <div class="col-6">
                                                 <label class="form-label fw-semibold">Check-in</label>
                                                 <input type="date" name="checkin_date" class="form-control modern-input"
-                                                    required>
+                                                    min="2026-05-14" max="2026-05-17" required>
                                             </div>
 
                                             <div class="col-6">
                                                 <label class="form-label fw-semibold">Check-out</label>
                                                 <input type="date" name="checkout_date" class="form-control modern-input"
-                                                    required>
+                                                    min="2026-05-14" max="2026-05-17" required>
                                             </div>
                                         </div>
 
@@ -335,8 +339,8 @@ $success = $_GET['success'] ?? '';
                                         <!-- Room Type Selection -->
                                         <div class="mb-3">
                                             <select name="room_type" class="form-control modern-input" required>
-                                                <option value="Single">Single</option>
                                                 <option value="Shared">Shared</option>
+                                                <option value="Single">Single</option>
                                             </select>
                                         </div>
 

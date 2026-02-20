@@ -8,11 +8,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // Get form inputs
-$suite_id     = intval($_POST['suite_id']);
+$suite_id = intval($_POST['suite_id']);
 $checkin_date = $_POST['checkin_date'];
 $checkout_date = $_POST['checkout_date'];
-$rooms        = intval($_POST['rooms']);
-$room_type    = $_POST['room_type']; // NEW
+$rooms = intval($_POST['rooms']);
+$room_type = $_POST['room_type']; // NEW
 
 // Validate dates
 if (strtotime($checkin_date) >= strtotime($checkout_date)) {
@@ -21,10 +21,19 @@ if (strtotime($checkin_date) >= strtotime($checkout_date)) {
 }
 
 // Calculate number of nights
-$checkin  = new DateTime($checkin_date);
+$checkin = new DateTime($checkin_date);
 $checkout = new DateTime($checkout_date);
 $interval = $checkout->diff($checkin);
-$nights   = $interval->days;
+$nights = $interval->days;
+
+// Restrict bookings to 14–17 May 2026 only
+$retreat_start = new DateTime('2026-05-14');
+$retreat_end = new DateTime('2026-05-17');
+
+if ($checkin < $retreat_start || $checkout > $retreat_end) {
+    echo "<script>alert('The selected dates are not available at the moment. Retreat bookings are only available from 14–17 May 2026.'); window.location.href='accomodations.php';</script>";
+    exit;
+}
 
 // Fetch suite details
 $stmt_suite = $db->prepare("SELECT single_price, shared_price, availability_status FROM suites WHERE id = ?");

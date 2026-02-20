@@ -1,5 +1,6 @@
 <?php
-ini_set('display_errors',0);
+session_start();
+ini_set('display_errors', 0);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +8,7 @@ ini_set('display_errors',0);
 <head>
     <meta charset="utf-8">
 
-    <title>Schedule | Haut Logistics</title>
+    <title>Schedule | Bbr Dolce vita</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -204,59 +205,76 @@ ini_set('display_errors',0);
         <div class="day-content-container">
 
             <div id="day-1" class="day-content active">
-                <h4>Day 1 | June 26, 2025</h4>
+                <h4>Day 1 | May 14, 2026</h4>
                 <p>After 15:00 - Check-in and registration</p>
                 <p>16:00 - Welcome tea and sandwiches</p>
                 <p>18:00-19:00 - Pilates session with Camilla Sparks at top west wing terrace</p>
                 <p>18:00-19:00 - Yoga with Lucy Moore at north wing terrace</p>
-                <p>19:30-20:00 - Aperitivo Aperol Spritz or wine and nibbles</p>
-                <p>20:00-21:00 - Four-course dinner with 2 glasses of wine</p>
-                <p>21:00-22:00 - Time to relax and group sharing</p>
-                <p>22:00 - Program ends and time to retire to your suites</p>
+                <p>19:30-20:30 - Four-course dinner with 2 glasses of wine</p>
+                <p>20:30-21:30 - Time to relax and group sharing</p>
+                <p>21:30 - Program ends and time to retire to your suites</p>
             </div>
 
             <div id="day-2" class="day-content">
-                <h4>Day 2 | June 27, 2025</h4>
-                <p>7:00 - Wake up with a tray of hot water, lemon, mint, and ginger</p>
-                <p>7:30-8:30 - Morning hike through vineyards and historic Roman ruins</p>
-                <p>8:30-9:30 - Continental breakfast on kitchen terrace with sea & mountain views</p>
-                <p>10:00-11:00 - Pilates session with Camilla Sparks</p>
-                <p>10:00-11:00 - Yoga with Lucy Moore</p>
-                <p>11:00-12:00 - Relax by the pool</p>
-                <p>12:15-13:15 - Three-course lunch on west wing terrace</p>
-                <p>13:30 - Excursion to Ventimiglia market & Monaco port</p>
-                <p>18:00-19:00 - Pilates/Yoga sessions</p>
-                <p>20:00-21:00 - Four-course dinner</p>
-                <p>21:00-22:00 - Relax and group sharing</p>
+                <h4>Day 2 | May 15, 2026</h4>
+                <p>7:00 - Wake up with a tray of hot water, lemon, mint and ginger all fresh from the garden</p>
+                <p>7:30-8:30 - 1 hour morning hike. Take in wine vineyards and breathtaking views and a 16th century
+                    Roman ruin at the end of the trail</p>
+                <p>8:30-9:30 - Continental breakfast on kitchen terrace overlooking the amazing sea and mountain views
+                </p>
+                <p>10:00-11:00 - Pilates session with Camilla Sparks top west wing terrace</p>
+                <p>10:00-11:00 - Yoga with Lucy Moore at the north wing terrace</p>
+                <p>11:00-12:00 - Time to relax by the pool</p>
+                <p>12:00-12:15 - Time to change if needed</p>
+                <p>12:15-13:15 - Three course lunch on the west wing terrace</p>
+                <p>13:30 - Excursion with taxis to the famous Ventimiglia open market on the beach then 10 minutes away
+                    by foot explore the new Monaco port and Marina di "Cala del Forte" or old town above the market</p>
+                <p>17:00 - Meet at Ventimiglia train station to take taxis back to BBR Dolce Vita</p>
+                <p>18:00-19:00 - Pilates session with Camilla Sparks top west wing terrace</p>
+                <p>18:00-19:00 - Yoga with Lucy Moore at the North wing terrace</p>
+                <p>19:30-20:30 - Dinner</p>
+                <p>20:30-21:30 - time to telax and group sharing </p>
+                <p>21:00 - Retire to your suites</p>
             </div>
 
             <div id="day-3" class="day-content">
-                <h4>Day 3 | June 28, 2025</h4>
-                <p>7:00 - Morning hydration with fresh garden herbs</p>
-                <p>7:30-8:30 - Scenic hiking trail in Ventimiglia hills</p>
-                <p>8:30-9:30 - Breakfast on kitchen terrace</p>
-                <p>10:00-11:00 - Pilates with Camilla Sparks</p>
-                <p>10:00-11:00 - Yoga with Lucy Moore</p>
-                <p>11:00-12:00 - Relax by the pool</p>
-                <p>12:15-13:15 - Three-course lunch</p>
-                <p>13:30 - Excursion to Dolce Aqua medieval village and Doria Castle</p>
-                <p>17:00 - Wine tasting tour at Foresti Vineyard</p>
-                <p>20:00-21:00 - Four-course dinner</p>
+                <h4>Day 3 | May 16, 2026</h4>
+                <p>7:00 - Wake up with a tray of hot water, lemon, mint and ginger all fresh from the garden</p>
+                <p>7:30-8:30 - 1 hour stunning hiking trail in the hills above Ventimiglia that rise up from the sea
+                    past an enormous olive grove and 5th century chapel</p>
+                <p>8:30-9:30 - Continental breakfast on kitchen terrace overlooking the amazing sea and mountain views
+                </p>
+                <p>10:00-11:00 - Pilates session with Camilla Sparks top west wing terrace</p>
+                <p>10:00-11:00 - Yoga with Lucy Moore at the north wing terrace</p>
+                <p>11:00-12:00 - Time to relax by the pool</p>
+                <p>12:00-12:15 - Time to change if needed</p>
+                <p>12:15-13:15 - Three course lunch on the west wing terrace</p>
+                <p>13:30 - Time off to chillax or go sightseeing excursion to Dolceaqua</p>
+                <p>16:30-17:00 - Meet at the main square at BIP Dolceacqua</p>
+                <p>17:00 - Taxi depart for the BBR Dolce Vita remove aperitivo </p>
+                <p>18:30 - Taxis to BBR Dolce Vita</p>
+                <p>19:30-20:30 - Dinner</p>
+                <p>20:30-21:30 - time to telax and group sharing </p>
+                <p>21:00 - Retire to your suites</p>
             </div>
 
             <div id="day-4" class="day-content">
-                <h4>Day 4 | June 29, 2025 (Standard Departure)</h4>
-                <p>7:00-7:30 - Breakfast on terrace</p>
+                <h4>Day 4 | May 17, 2026 (Standard Departure)</h4>
+                <p>7:00 - 7:30 - Continental breakfast on kitchen terrace overlooking the amazing sea and mountain views
+                </p>
                 <p>7:45 - Taxis to Bordighera</p>
-                <p>8:15-10:00 - Excursion visit old town of Bordighera & Beodo trail hike</p>
-                <p>11:00-12:00 - Pilates/Yoga sessions</p>
-                <p>12:15-13:30 - Three-course lunch</p>
-                <p>14:00 - Relax by pool or optional spa treatments</p>
-                <p>16:00-17:00 - Check out / transfers</p>
+                <p>8:15-10:00 - Excursion visit old town of Bordighera and Beodo trail hike</p>
+                <p>10:00 - Taxis back to BBR Dolce Vita</p>
+                <p>11:00-12:00 - Pilates session with Camilla Sparks top west wing terrace</p>
+                <p>11:00-12:00 - Yoga with Lucy Moore at the north wing terrace</p>
+                <p>12:15-13:30 - Three course lunch on the west wing terrace</p>
+                <p>14:00 - Relax by the pool or treatments for facial, deep tissue massage, manicure/pedicure (extra
+                    charge)</p>
+                <p>16:00-17:00 - Check out and transfers available upon request</p>
             </div>
 
             <div id="day-4b" class="day-content">
-                <h4>Day 4 | June 29, 2025 (Bonus Experience)</h4>
+                <h4>Day 5 | May 18, 2026 (Bonus Experience)</h4>
                 <p>14:00 - Taxis to Hanbury Botanical Gardens & Ventimiglia tour</p>
                 <p>16:00 - Taxis to Mortola Tower for "Aperitivo & Nibbles"</p>
                 <p>19:00 - Return to BBR Dolce Vita</p>
@@ -264,63 +282,14 @@ ini_set('display_errors',0);
             </div>
 
             <div id="day-5" class="day-content">
-                <h4>Day 5 | June 30, 2025</h4>
+                <h4>Day 6 | May 19, 2026</h4>
                 <p>9:00 - Continental Breakfast Buffet</p>
                 <p>11:00 - Check out</p>
             </div>
 
         </div>
 
-    </div><br>
-
-    <section class="py-5 bg-light">
-        <div class="container">
-
-            <!-- Heading -->
-            <div class="text-center mb-4" data-aos="fade-down" data-aos-duration="1000">
-                <h3 class="fw-bold">Bonus Experience</h3>
-                <hr class="mx-auto" style="width: 60px; border-top: 3px solid #1a9acd;">
-            </div>
-
-            <!-- Description -->
-            <div class="text-center mb-5" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                <p class="lead text-muted">
-                    Step away from daily routines and into a setting that encourages calm, clarity, and connection.
-                    Extend your
-                    stay for an additional night (€175) and enjoy a private tour of the Hanbury Botanical Gardens, plus
-                    an
-                    exclusive visit to a restored 14th-century tower with stunning Ligurian Sea views.
-                </p>
-            </div>
-
-            <!-- Image Cards -->
-            <div class="row g-5 justify-content-center">
-
-                <div class="col-md-6 text-center" data-aos="zoom-in" data-aos-duration="1000">
-                    <div class="card border-0 shadow-lg h-100">
-                        <img src="./dist/images/experiencepic1.png" alt="Hanbury Gardens"
-                            class="card-img-top img-fluid rounded">
-                        <div class="card-body">
-                            <p class="card-text fw-semibold">The stunning Hanbury Botanical Gardens overlooking the sea
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 text-center" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
-                    <div class="card border-0 shadow-lg h-100">
-                        <img src="./dist/images/experiencepic2.png" alt="14th-century Tower"
-                            class="card-img-top img-fluid rounded">
-                        <div class="card-body">
-                            <p class="card-text fw-semibold">The restored 14th-century tower with panoramic views</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
+    </div><br><br>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

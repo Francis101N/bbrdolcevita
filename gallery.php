@@ -173,6 +173,27 @@
                 <!-- Image 1 -->
                 <div class="col-md-4 col-sm-6" data-aos="fade-right">
                     <div class="gallery-item">
+                        <img src="./dist/images/project3.png" class="img-fluid rounded-4" alt="Gallery Image 1">
+                    </div>
+                </div>
+
+                <!-- Image 2 -->
+                <div class="col-md-4 col-sm-6" data-aos="fade-up">
+                    <div class="gallery-item">
+                        <img src="./dist/images/0d008f_f44038e7a38547208642a39d04b62a79~mv2.avif" class="img-fluid rounded-4" alt="Gallery Image 2">
+                    </div>
+                </div>
+
+                <!-- Image 3 -->
+                <div class="col-md-4 col-sm-6" data-aos="fade-left">
+                    <div class="gallery-item">
+                        <img src="./dist/images/project4.png" class="img-fluid rounded-4" alt="Gallery Image 3">
+                    </div>
+                </div>
+
+                <!-- Image 1 -->
+                <div class="col-md-4 col-sm-6" data-aos="fade-right">
+                    <div class="gallery-item">
                         <img src="./dist/images/DSC05916.jpg" class="img-fluid rounded-4" alt="Gallery Image 1">
                     </div>
                 </div>
@@ -236,7 +257,7 @@
                 <!-- Image 10 -->
                 <div class="col-md-4 col-sm-6" data-aos="fade-right" data-aos-delay="300">
                     <div class="gallery-item">
-                        <img src="./dist/images/DSC05978.jpg" class="img-fluid rounded-4" alt="Gallery Image 10">
+                        <img src="./dist/images/rrrrrrrrrrr.avif" class="img-fluid rounded-4" alt="Gallery Image 10">
                     </div>
                 </div>
 

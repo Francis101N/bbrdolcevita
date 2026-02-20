@@ -1,10 +1,14 @@
+<?php
+session_start();
+ini_set('display_errors', 0);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
 
-    <title>About Us | Haut Logistics</title>
+    <title>About Us | Bbr Dolce vita</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 

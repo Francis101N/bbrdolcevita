@@ -15,14 +15,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cart_id'])) {
   
         echo "<script>
                 alert('Item removed from cart.');
-                window.location.href='cart.php';
+                window.location.href='cart';
               </script>";
         exit;
     } else {
        
         echo "<script>
                 alert('Failed to remove item from cart.');
-                window.location.href='cart.php';
+                window.location.href='cart';
               </script>";
         exit;
     }
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cart_id'])) {
     // Invalid request
     echo "<script>
             alert('Invalid request.');
-            window.location.href='cart.php';
+            window.location.href='cart';
           </script>";
     exit;
 }

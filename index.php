@@ -1,3 +1,8 @@
+<?php
+session_start();
+ini_set('display_errors', 0);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -152,7 +157,70 @@
         .d-md-none svg circle {
             fill: #ffffff !important;
         }
-    }
+
+        .home-banner .card {
+            padding-top: 40px;
+            padding-left: 20px;
+            padding-bottom: 40px;
+        }
+
+        .experience {
+            margin: 5px;
+        }
+
+        .home-banner-sub {
+            font-size: 16px;
+            font-weight: 800;
+        }
+
+        .home-banner-head {
+            font-size: 40px;
+        }
+
+        .experience {
+            padding: 2rem 1rem;
+        }
+
+        .experience-title {
+            font-size: 30px;
+            font-weight: 700;
+        }
+
+        .experience-gallery {
+            gap: 2.5rem;
+        }
+
+        .img-card {
+            border-radius: 15px;
+        }
+
+        .img-card img {
+            width: 100%;
+            height: 300px;
+        }
+
+        .about_company-right-row ul li {
+            font-weight: 600;
+            font-size: 10px;
+            margin: 10px 0px 0px 25px;
+        }
+
+        .img_carder {
+            height: 400px;
+        }
+
+        .home_testimonial-right-iconL img {
+            width: 20px;
+        }
+
+        .home_testimonial-right-iconR img {
+            width: 20px;
+        }
+
+        .home_testimonial-right-content {
+            width: 100%;
+
+        }
 </style>
 
 <body>
@@ -160,15 +228,15 @@
     <?php include 'inc/header.php'; ?>
 
     <div class="home-banner">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
                 <li data-target="#myCarousel" data-slide-to="2"></li>
             </ol>
-            <div class="carousel-inner row w-100 mx-auto">
+            <div class="carousel-inner inner row w-100 mx-auto">
                 <div class="carousel-item col-md-12 active">
-                    <div class="card" style="background-image: url(./dist/images/DSC05916.jpg);">
+                    <div class="card" style="background-image: url(./dist/images/slider1.png);">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
@@ -187,7 +255,7 @@
 
                 <!-- Slide 2 -->
                 <div class="carousel-item col-md-12">
-                    <div class="card" style="background-image: url(./dist/images/DSC05947.jpg);">
+                    <div class="card" style="background-image: url(./dist/images/slider2.png);">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
@@ -206,7 +274,7 @@
 
                 <!-- Slide 3 -->
                 <div class="carousel-item col-md-12">
-                    <div class="card" style="background-image: url(./dist/images/DSC05977.jpg);">
+                    <div class="card" style="background-image: url(./dist/images/slider3.png);">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-7">
@@ -226,6 +294,38 @@
         </div>
     </div>
 
+    <section>
+        <div class="container">
+
+            <!-- Heading -->
+            <div class="text-center mb-5">
+                <h2 class="font-weight-bold" style="font-size: 2.5rem;">
+                    Experience the Journey Before You Arrive
+                </h2>
+                <p class="text-muted" style="max-width: 700px; margin: 0 auto;">
+                    Step inside our retreat and discover the atmosphere, comfort, and serenity that await you.
+                </p>
+            </div>
+
+            <!-- Video -->
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="shadow rounded overflow-hidden">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <video class="w-full h-full object-cover" autoplay muted loop playsinline controls>
+                                <source src="./dist/images/bbr-video.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <br><br><br><br><br>
+
+
     <div class="container">
         <div class="home-about">
             <div class="row">
@@ -235,7 +335,7 @@
 
                             <!-- Yoga -->
                             <div class="home-about-box-card" id="home-about-box-card1"
-                                style="background-image: url(./dist/images/DSC05913.jpg);">
+                                style="background-image: url(./dist/images/project4.png);">
                                 <!-- <div class="home-about-box-content">
                                     <div class="home-about-box-content-img">
                                         <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#7A9E9B"
@@ -254,7 +354,7 @@
 
                             <!-- Pilates -->
                             <div class="home-about-box-card" id="home-about-box-card2"
-                                style="background-image: url(./dist/images/DSC06054.jpg);">
+                                style="background-image: url(./dist/images/project3.png);">
                                 <!-- <div class="home-about-box-content">
                                     <div class="home-about-box-content-img">
                                         <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#7A9E9B"
@@ -274,7 +374,7 @@
 
                             <!-- Serenity -->
                             <div class="home-about-box-card" id="home-about-box-card3"
-                                style="background-image: url(./dist/images/DSC05978.jpg);">
+                                style="background-image: url(./dist/images/DSC05913.jpg);">
                                 <!-- <div class="home-about-box-content">
                                     <div class="home-about-box-content-img">
                                         <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#7A9E9B"
@@ -608,7 +708,7 @@
             </div>
 
             <div class="img-card slide-up highlight">
-                <img src="dist/images/DSC06074.jpg" alt="Yoga retreat">
+                <img src="dist/images/New Project (1).png" alt="Yoga retreat">
             </div>
 
             <div class="img-card slide-right">
@@ -677,7 +777,7 @@
                 </div>
                 <div class="col-md-5">
                     <div class="about_company-right carder">
-                        <img src="./dist/images/DSC05899.jpg" class="img-fluid img_carder" style="height:550px">
+                        <img src="./dist/images/DSC05899.jpg" class="img-fluid img_carder">
                     </div>
                 </div>
             </div>

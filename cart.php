@@ -218,7 +218,7 @@ include './connection/connect.php';
     <div class="container my-5">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h3 class="fw-bold">Your Booking Cart</h3>
-            <span class="badge bg-success fs-6">
+            <span class="badge bg-success text-light fs-6">
                 <?= count($cart_items) ?> Item(s)
             </span>
         </div>
@@ -300,7 +300,7 @@ include './connection/connect.php';
 
                                     <!-- Remove -->
                                     <td class="text-end">
-                                        <form action="remove_from_cart.php" method="POST">
+                                        <form action="remove_from_cart" method="POST">
                                             <input type="hidden" name="cart_id" value="<?= $item['cart_id'] ?>">
                                             <button type="submit" class="btn btn-sm btn-outline-danger rounded-pill">
                                                 Remove

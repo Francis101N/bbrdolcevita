@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 include './connection/connect.php';
 
 $session_id = session_id();
