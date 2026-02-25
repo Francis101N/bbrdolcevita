@@ -239,7 +239,8 @@ ini_set('display_errors', 0);
                                     <path
                                         d="M13.485 1.929a1 1 0 0 1 0 1.414l-7.071 7.071a1 1 0 0 1-1.414 0L2.515 7.929a1 1 0 1 1 1.414-1.414l1.293 1.293 6.364-6.364a1 1 0 0 1 1.414 0z" />
                                 </svg>
-                                Taste culinary delights and private wine tasting at the Foresti Vineyard.
+                                Taste culinary delights and any requirements specified if gluton free or any allergies.
+                                Wine/Champagne is available to purchase at our canteen.
                             </li>
                         </ul>
 
@@ -364,7 +365,8 @@ ini_set('display_errors', 0);
                     </div>
 
                     <div class="carousel-item">
-                        <img src="./dist/images/DSC06074.jpg" class="d-block w-100 retreat-img" alt="Luxury Resort View">
+                        <img src="./dist/images/DSC06074.jpg" class="d-block w-100 retreat-img"
+                            alt="Luxury Resort View">
                     </div>
 
                     <div class="carousel-item">

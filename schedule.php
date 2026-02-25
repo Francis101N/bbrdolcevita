@@ -210,7 +210,7 @@ ini_set('display_errors', 0);
                 <p>16:00 - Welcome tea and sandwiches</p>
                 <p>18:00-19:00 - Pilates session with Camilla Sparks at top west wing terrace</p>
                 <p>18:00-19:00 - Yoga with Lucy Moore at north wing terrace</p>
-                <p>19:30-20:30 - Four-course dinner with 2 glasses of wine</p>
+                <p>19:30-20:30 - Four-course dinner . </p>
                 <p>20:30-21:30 - Time to relax and group sharing</p>
                 <p>21:30 - Program ends and time to retire to your suites</p>
             </div>
@@ -234,7 +234,7 @@ ini_set('display_errors', 0);
                 <p>18:00-19:00 - Yoga with Lucy Moore at the North wing terrace</p>
                 <p>19:30-20:30 - Dinner</p>
                 <p>20:30-21:30 - time to telax and group sharing </p>
-                <p>21:00 - Retire to your suites</p>
+                <p>21:30 - Retire to your suites</p>
             </div>
 
             <div id="day-3" class="day-content">
@@ -251,7 +251,7 @@ ini_set('display_errors', 0);
                 <p>12:15-13:15 - Three course lunch on the west wing terrace</p>
                 <p>13:30 - Time off to chillax or go sightseeing excursion to Dolceaqua</p>
                 <p>16:30-17:00 - Meet at the main square at BIP Dolceacqua</p>
-                <p>17:00 - Taxi depart for the BBR Dolce Vita remove aperitivo </p>
+                <!-- <p>17:00 - Taxi depart for the BBR Dolce Vita remove aperitivo </p> -->
                 <p>18:30 - Taxis to BBR Dolce Vita</p>
                 <p>19:30-20:30 - Dinner</p>
                 <p>20:30-21:30 - time to telax and group sharing </p>

@@ -234,14 +234,10 @@ ini_set('display_errors', 0);
 
     <div class="contact_map">
         <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2882.0922138451506!2d-79.53567577411124!3d43.75018183229194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b3038c372f0b3%3A0xc5adbf07d53710ba!2sNorth%20York%2C%20ON%20M9M%202Z3%2C%20Canada!5e0!3m2!1sen!2sng!4v1745790370893!5m2!1sen!2sng"
-            width="100%" height="372" style="border:0;" allowfullscreen="" loading="lazy"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2878.4828778603105!2d7.60712597495777!3d43.82508474129866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12cded63526c02b7%3A0x68ccf54eee855aa5!2sRiviera%20Dolce%20Vita!5e0!3m2!1sen!2sng!4v1772025436980!5m2!1sen!2sng"
+            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-
-
-
-
 
     <?php include 'inc/footer.php'; ?>
 

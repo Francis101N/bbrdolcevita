@@ -61,7 +61,24 @@ $cart_count = $row['total_items'] ?? 0;
         <li class="nav-item"><a class="nav-link" href="retreats">Retreats</a></li>
         <li class="nav-item"><a class="nav-link" href="schedule">Schedule</a></li>
         <!-- <li class="nav-item"><a class="nav-link" href="gallery">Gallary</a></li> -->
-        <li class="nav-item"><a class="nav-link" href="accomodations">Accommodations</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="retreatDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Bookings
+          </a>
+          <ul class="dropdown-menu shadow-sm border-0 rounded-3" aria-labelledby="retreatDropdown">
+            <li>
+              <a class="dropdown-item" href="accomodations">
+                Accommodations
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="booking">
+                Retreat Booking
+              </a>
+            </li>
+          </ul>
+        </li>
 
         <!-- Cart Icon (VISIBLE ONLY ON DESKTOP) -->
         <li class="nav-item d-none d-md-flex align-items-center mr-3 position-relative">

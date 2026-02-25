@@ -32,7 +32,8 @@
                             <li><a href="gallery">>> Gallary</a></li>
                             <li><a href="retreats">>> Retreats & Experience</a></li>
                             <li><a href="accomodations">>> Accommodations</a></li>
-                            <li><a href="">>> Privacy Policy</a></li>
+                            <li><a href="booking">>> Retreat Booking</a></li>
+                            <li><a href="private-policy">>> Privacy Policy</a></li>
                         </ul>
                     </div>
                 </div>
@@ -83,7 +84,8 @@
         <div class="container">
             <div class="footer-copyright">
                 <div class="footer-copyrightL">
-                    <?php echo date("Y"); ?> Bbr dolce vita. All Rights Reserved
+                    <?php echo date("Y"); ?> Bbr dolce vita. All Rights Reserved, Designed & Developed by <a
+                        href="https://deevant.com/" class="text-dark"><b>Deevant Innovations .</b></a>
                 </div>
                 <div class="footer-copyrightL">
                     <!-- Terms Of Service -->

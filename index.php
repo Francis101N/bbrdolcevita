@@ -303,7 +303,7 @@ ini_set('display_errors', 0);
                     Experience the Journey Before You Arrive
                 </h2>
                 <p class="text-muted" style="max-width: 700px; margin: 0 auto;">
-                    Step inside our retreat and discover the atmosphere, comfort, and serenity that await you.
+                    Step inside our retreat and discover the atmosphere, comfort, and serenity that awaits you.
                 </p>
             </div>
 
@@ -500,7 +500,7 @@ ini_set('display_errors', 0);
                             </svg>
                         </div>
                         <div class="home-how-row-head">Follow the Flow</div>
-                        <p>Move through the BBR Vita weekly schedule, balancing yoga, pilates, rest, and reflection.</p>
+                        <p>Move through the BBR Dolcevita weekly schedule, balancing yoga, pilates, rest, and reflection.</p>
                     </div>
                 </div>
 
