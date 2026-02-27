@@ -197,8 +197,8 @@ ini_set('display_errors', 0);
             <button class="btn btn-outline-primary" data-day="2">Day 2 - Explore</button>
             <button class="btn btn-outline-primary" data-day="3">Day 3 - Immerse</button>
             <button class="btn btn-outline-primary" data-day="4">Day 4 - Farewell</button>
-            <button class="btn btn-outline-primary" data-day="4b">Day 4 - Bonus</button>
-            <button class="btn btn-outline-primary" data-day="5">Day 5 - Departure</button>
+            <!-- <button class="btn btn-outline-primary" data-day="4b">Day 4 - Bonus</button>
+            <button class="btn btn-outline-primary" data-day="5">Day 5 - Departure</button> -->
         </div>
 
         <!-- Day Content -->
@@ -273,7 +273,7 @@ ini_set('display_errors', 0);
                 <p>16:00-17:00 - Check out and transfers available upon request</p>
             </div>
 
-            <div id="day-4b" class="day-content">
+            <!-- <div id="day-4b" class="day-content">
                 <h4>Day 5 | May 18, 2026 (Bonus Experience)</h4>
                 <p>14:00 - Taxis to Hanbury Botanical Gardens & Ventimiglia tour</p>
                 <p>16:00 - Taxis to Mortola Tower for "Aperitivo & Nibbles"</p>
@@ -285,7 +285,7 @@ ini_set('display_errors', 0);
                 <h4>Day 6 | May 19, 2026</h4>
                 <p>9:00 - Continental Breakfast Buffet</p>
                 <p>11:00 - Check out</p>
-            </div>
+            </div> -->
 
         </div>
 
