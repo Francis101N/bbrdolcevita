@@ -227,8 +227,6 @@ ini_set('display_errors', 0);
 
     <?php include 'inc/header.php'; ?>
 
-    <h2>GOD IS GOOD</h2>
-
     <div class="home-banner">
         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
             <ol class="carousel-indicators">
