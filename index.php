@@ -236,7 +236,7 @@ ini_set('display_errors', 0);
             </ol>
             <div class="carousel-inner inner row w-100 mx-auto">
                 <div class="carousel-item col-md-12 active">
-                    <div class="card" style="background-image: url(./dist/images/slider1.png);">
+                    <div class="card" style="background-image: url(./dist/images/845baee0-dd75-40ec-be96-8f6b6afb2935.avif);">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
@@ -335,7 +335,7 @@ ini_set('display_errors', 0);
 
                             <!-- Yoga -->
                             <div class="home-about-box-card" id="home-about-box-card1"
-                                style="background-image: url(./dist/images/project4.png);">
+                                style="background-image: url(./dist/images/DSC05913.jpg);">
                                 <!-- <div class="home-about-box-content">
                                     <div class="home-about-box-content-img">
                                         <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#7A9E9B"
@@ -352,9 +352,8 @@ ini_set('display_errors', 0);
                                 </div> -->
                             </div>
 
-                            <!-- Pilates -->
                             <div class="home-about-box-card" id="home-about-box-card2"
-                                style="background-image: url(./dist/images/project3.png);">
+                                style="background-image: url(./dist/images/5823604740460318348.jpg);">
                                 <!-- <div class="home-about-box-content">
                                     <div class="home-about-box-content-img">
                                         <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#7A9E9B"
@@ -371,10 +370,23 @@ ini_set('display_errors', 0);
                                     <a href="pilates.php">Discover more &gt;&gt;</a>
                                 </div> -->
                             </div>
-
-                            <!-- Serenity -->
                             <div class="home-about-box-card" id="home-about-box-card3"
-                                style="background-image: url(./dist/images/DSC05913.jpg);">
+                                style="background-image: url(./dist/images/5823604740460318374.jpg);">
+                                <!-- <div class="home-about-box-content">
+                                    <div class="home-about-box-content-img">
+                                        <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#7A9E9B"
+                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M12 20c-3-2-6-5-6-9 3 0 5 2 6 4 1-2 3-4 6-4 0 4-3 7-6 9z" />
+                                            <path d="M12 15v-5" />
+                                        </svg>
+                                    </div>
+                                    <div class="home-about-box-content-head">Serenity & Restoration</div>
+                                    <p>Intentional rest to restore harmony.</p>
+                                    <a href="serenity.php">Discover more &gt;&gt;</a>
+                                </div> -->
+                            </div>
+                            <div class="home-about-box-card" id="home-about-box-card4"
+                                style="background-image: url(./dist/images/5823604740460318301.jpg);">
                                 <!-- <div class="home-about-box-content">
                                     <div class="home-about-box-content-img">
                                         <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#7A9E9B"
@@ -708,11 +720,11 @@ ini_set('display_errors', 0);
             </div>
 
             <div class="img-card slide-up highlight">
-                <img src="dist/images/New Project (1).png" alt="Yoga retreat">
+                <img src="dist/images/5823604740460318301.jpg" alt="Yoga retreat">
             </div>
 
             <div class="img-card slide-right">
-                <img src="dist/images/DSC06029.jpg" alt="Wellness retreat">
+                <img src="dist/images/5823604740460318347.jpg" alt="Wellness retreat">
             </div>
         </div>
 

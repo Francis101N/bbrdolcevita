@@ -208,14 +208,14 @@
                 <!-- Image 3 -->
                 <div class="col-md-4 col-sm-6" data-aos="fade-left">
                     <div class="gallery-item">
-                        <img src="./dist/images/DSC06074.jpg" class="img-fluid rounded-4" alt="Gallery Image 3">
+                        <img src="./dist/images/5823604740460318347.jpg" class="img-fluid rounded-4" alt="Gallery Image 3">
                     </div>
                 </div>
 
                 <!-- Image 4 -->
                 <div class="col-md-4 col-sm-6" data-aos="fade-right" data-aos-delay="100">
                     <div class="gallery-item">
-                        <img src="./dist/images/DSC06054.jpg" class="img-fluid rounded-4" alt="Gallery Image 4">
+                        <img src="./dist/images/5823604740460318383.jpg" class="img-fluid rounded-4" alt="Gallery Image 4">
                     </div>
                 </div>
 
@@ -243,7 +243,7 @@
                 <!-- Image 8 -->
                 <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="gallery-item">
-                        <img src="./dist/images/DSC05965.jpg" class="img-fluid rounded-4" alt="Gallery Image 8">
+                        <img src="./dist/images/5823604740460318384.jpg" class="img-fluid rounded-4" alt="Gallery Image 8">
                     </div>
                 </div>
 

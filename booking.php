@@ -297,12 +297,10 @@
                         <li>All Pilates classes and group activities as per schedule</li>
                         <li>Yoga sessions</li>
                         <li>Accommodation in your selected suite</li>
-                        <li>One treatment of your choice (selected during booking)</li>
                         <li>Meals prepared by our onsite chef (as specified in the schedule)</li>
                         <li>
                             All taxis during venue excursions are included in your retreat package.
-                            This includes transportation to Ventimiglia Market, Cala del Forte Marina,
-                            Dolceacqua, Foresti Vineyard, and Bordighera
+                            This includes transportation to Ventimiglia Market, Cala del Forte Marina, and Bordighera
                         </li>
                         <li>Complimentary parking lot access for the duration of your stay</li>
                     </ul>
@@ -311,7 +309,7 @@
                     <ul class="list-unstyled not-included-list">
                         <li>All additional trips and private sessions</li>
                         <li>Massages and treatments – Pricing upon request</li>
-                        <li>Additional glasses of wine can be purchased for €3,00 per glass</li>
+                        <li>Red/White and champagne for sale at the BBR villa shop €20 per bottle.</li>
                         <li>Airfare and transportation to/from the retreat</li>
                         <li>Travel insurance (required by Italian law for non-residents visiting Italy)</li>
                         <li>Visa requirements for non-EU citizens</li>

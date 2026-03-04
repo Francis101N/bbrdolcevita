@@ -249,10 +249,13 @@ ini_set('display_errors', 0);
                 <p>11:00-12:00 - Time to relax by the pool</p>
                 <p>12:00-12:15 - Time to change if needed</p>
                 <p>12:15-13:15 - Three course lunch on the west wing terrace</p>
-                <p>13:30 - Time off to chillax or go sightseeing excursion to Dolceaqua</p>
+                <p>13:30 - Time off to chillax or go sightseeing excursion to Dolceaqua - Medieval village which dates
+                    back to 1151 and hike up a steep climb to Doria Castle from the 12th century to explore the environs
+                    and learn local history from Libet</p>
                 <p>16:30-17:00 - Meet at the main square at BIP Dolceacqua</p>
-                <!-- <p>17:00 - Taxi depart for the BBR Dolce Vita remove aperitivo </p> -->
-                <p>18:30 - Taxis to BBR Dolce Vita</p>
+                <p>17:00 - Taxi depart to BBR Dolce Vita </p>
+                <p>18:00 - 19:00 - Pilates session with Camilla </p>
+                <p>18:00 - 19:00 - Yoga with Lucy </p>
                 <p>19:30-20:30 - Dinner</p>
                 <p>20:30-21:30 - time to telax and group sharing </p>
                 <p>21:00 - Retire to your suites</p>

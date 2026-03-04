@@ -360,26 +360,35 @@ ini_set('display_errors', 0);
                 <div class="carousel-inner rounded-4 shadow-sm">
 
                     <div class="carousel-item active">
-                        <img src="./dist/images/DSC05990.jpg" class="d-block w-100 h-24 retreat-img"
+                        <img src="./dist/images/slide001.png" class="d-block w-100 h-24 retreat-img"
                             alt="Riviera Dining Experience">
                     </div>
 
                     <div class="carousel-item">
-                        <img src="./dist/images/DSC06074.jpg" class="d-block w-100 retreat-img"
+                        <img src="./dist/images/5823604740460318383.jpg" class="d-block w-100 retreat-img"
                             alt="Luxury Resort View">
                     </div>
 
                     <div class="carousel-item">
-                        <img src="./dist/images/DSC05916.jpg" class="d-block w-100 retreat-img" alt="Coastal Excursion">
+                        <img src="./dist/images/slide3.png" class="d-block w-100 retreat-img" alt="Coastal Excursion">
                     </div>
 
                     <div class="carousel-item">
-                        <img src="./dist/images/DSC06023.jpg" class="d-block w-100 retreat-img"
+                        <img src="./dist/images/slide4.png" class="d-block w-100 retreat-img"
                             alt="Italian Riviera Scenery">
                     </div>
 
                     <div class="carousel-item">
-                        <img src="./dist/images/DSC06108.jpg" class="d-block w-100 retreat-img" alt="Gourmet Cuisine">
+                        <img src="./dist/images/slide5.png" class="d-block w-100 retreat-img" alt="Gourmet Cuisine">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./dist/images/slide6.png" class="d-block w-100 retreat-img" alt="Gourmet Cuisine">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./dist/images/slide7.png" class="d-block w-100 retreat-img" alt="Gourmet Cuisine">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./dist/images/slide8.png" class="d-block w-100 retreat-img" alt="Gourmet Cuisine">
                     </div>
 
                 </div>

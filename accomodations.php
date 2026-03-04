@@ -261,9 +261,7 @@ $success = $_GET['success'] ?? '';
 
                                 <!-- Carousel for suite images -->
                                 <div id="suiteCarousel<?php echo $suite['id']; ?>"
-                                    class="carousel slide carousel-fade suite-img" data-bs-ride="carousel"
-                                    data-bs-interval="3500" data-bs-pause="false">
-
+                                    class="carousel slide carousel-fade suite-img" data-bs-ride="false">
                                     <div class="carousel-inner">
                                         <?php
                                         $images = [$suite['image1'], $suite['image2'], $suite['image3']];
@@ -385,6 +383,22 @@ $success = $_GET['success'] ?? '';
                 bsAlert.close();
             }, 5000); // 5000ms = 5 seconds
         }
+    });
+    document.querySelectorAll('.suite-img').forEach(function (carouselElement) {
+        const carousel = new bootstrap.Carousel(carouselElement, {
+            interval: 3000,
+            ride: false,
+            pause: false,
+            wrap: true
+        });
+
+        carouselElement.addEventListener('mouseenter', function () {
+            carousel.cycle(); // Start sliding on hover
+        });
+
+        carouselElement.addEventListener('mouseleave', function () {
+            carousel.pause(); // Stop sliding when mouse leaves
+        });
     });
 </script>
 
