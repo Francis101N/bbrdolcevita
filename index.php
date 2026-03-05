@@ -236,7 +236,7 @@ ini_set('display_errors', 0);
             </ol>
             <div class="carousel-inner inner row w-100 mx-auto">
                 <div class="carousel-item col-md-12 active">
-                    <div class="card" style="background-image: url(./dist/images/845baee0-dd75-40ec-be96-8f6b6afb2935.avif);">
+                    <div class="card" style="background-image: url(./dist/images/landing-page-image1.jpeg);">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
