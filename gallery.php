@@ -176,11 +176,18 @@
                         <img src="./dist/images/project3.png" class="img-fluid rounded-4" alt="Gallery Image 1">
                     </div>
                 </div>
+                <div class="col-md-4 col-sm-6" data-aos="fade-right">
+                    <div class="gallery-item">
+                        <img src="./dist/images/WhatsApp Image 2026-03-05 at 10.35.49 AM (2).jpeg"
+                            class="img-fluid rounded-4" alt="Gallery Image 1">
+                    </div>
+                </div>
 
                 <!-- Image 2 -->
                 <div class="col-md-4 col-sm-6" data-aos="fade-up">
                     <div class="gallery-item">
-                        <img src="./dist/images/0d008f_f44038e7a38547208642a39d04b62a79~mv2.avif" class="img-fluid rounded-4" alt="Gallery Image 2">
+                        <img src="./dist/images/0d008f_f44038e7a38547208642a39d04b62a79~mv2.avif"
+                            class="img-fluid rounded-4" alt="Gallery Image 2">
                     </div>
                 </div>
 
@@ -208,14 +215,16 @@
                 <!-- Image 3 -->
                 <div class="col-md-4 col-sm-6" data-aos="fade-left">
                     <div class="gallery-item">
-                        <img src="./dist/images/5823604740460318347.jpg" class="img-fluid rounded-4" alt="Gallery Image 3">
+                        <img src="./dist/images/5823604740460318347.jpg" class="img-fluid rounded-4"
+                            alt="Gallery Image 3">
                     </div>
                 </div>
 
                 <!-- Image 4 -->
                 <div class="col-md-4 col-sm-6" data-aos="fade-right" data-aos-delay="100">
                     <div class="gallery-item">
-                        <img src="./dist/images/5823604740460318383.jpg" class="img-fluid rounded-4" alt="Gallery Image 4">
+                        <img src="./dist/images/5823604740460318383.jpg" class="img-fluid rounded-4"
+                            alt="Gallery Image 4">
                     </div>
                 </div>
 
@@ -243,7 +252,8 @@
                 <!-- Image 8 -->
                 <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="gallery-item">
-                        <img src="./dist/images/5823604740460318384.jpg" class="img-fluid rounded-4" alt="Gallery Image 8">
+                        <img src="./dist/images/5823604740460318384.jpg" class="img-fluid rounded-4"
+                            alt="Gallery Image 8">
                     </div>
                 </div>
 
@@ -251,6 +261,12 @@
                 <div class="col-md-4 col-sm-6" data-aos="fade-left" data-aos-delay="200">
                     <div class="gallery-item">
                         <img src="./dist/images/DSC05969.jpg" class="img-fluid rounded-4" alt="Gallery Image 9">
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6" data-aos="fade-left" data-aos-delay="200">
+                    <div class="gallery-item">
+                        <img src="./dist/images/WhatsApp Image 2026-03-05 at 10.35.48 AM (3).jpeg"
+                            class="img-fluid rounded-4" alt="Gallery Image 9">
                     </div>
                 </div>
 
@@ -272,6 +288,48 @@
                 <div class="col-md-4 col-sm-6" data-aos="fade-left" data-aos-delay="300">
                     <div class="gallery-item">
                         <img src="./dist/images/DSC06113.jpg" class="img-fluid rounded-4" alt="Gallery Image 12">
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6" data-aos="fade-left" data-aos-delay="300">
+                    <div class="gallery-item">
+                        <img src="./dist/images/WhatsApp Image 2026-03-05 at 10.35.48 AM (1).jpeg"
+                            class="img-fluid rounded-4" alt="Gallery Image 12">
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6" data-aos="fade-left" data-aos-delay="300">
+                    <div class="gallery-item">
+                        <img src="./dist/images/WhatsApp Image 2026-03-05 at 10.35.48 AM (2).jpeg"
+                            class="img-fluid rounded-4" alt="Gallery Image 12">
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6" data-aos="fade-left" data-aos-delay="300">
+                    <div class="gallery-item">
+                        <img src="./dist/images/WhatsApp Image 2026-03-05 at 10.35.49 AM (1).jpeg"
+                            class="img-fluid rounded-4" alt="Gallery Image 12">
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6" data-aos="fade-left" data-aos-delay="300">
+                    <div class="gallery-item">
+                        <img src="./dist/images/WhatsApp Image 2026-03-05 at 10.35.49 AM (3).jpeg"
+                            class="img-fluid rounded-4" alt="Gallery Image 12">
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6" data-aos="fade-left" data-aos-delay="300">
+                    <div class="gallery-item">
+                        <img src="./dist/images/WhatsApp Image 2026-03-05 at 10.35.49 AM.jpeg"
+                            class="img-fluid rounded-4" alt="Gallery Image 12">
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6" data-aos="fade-left" data-aos-delay="300">
+                    <div class="gallery-item">
+                        <img src="./dist/images/IMG_5836.jpg"
+                            class="img-fluid rounded-4" alt="Gallery Image 12">
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6" data-aos="fade-left" data-aos-delay="300">
+                    <div class="gallery-item">
+                        <img src="./dist/images/IMG_5837.jpg"
+                            class="img-fluid rounded-4" alt="Gallery Image 12">
                     </div>
                 </div>
 
