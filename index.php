@@ -353,7 +353,7 @@ ini_set('display_errors', 0);
                             </div>
 
                             <div class="home-about-box-card" id="home-about-box-card2"
-                                style="background-image: url(./dist/images/5823604740460318348.jpg);">
+                                style="background-image: url(./dist/images/yoga5.png);">
                                 <!-- <div class="home-about-box-content">
                                     <div class="home-about-box-content-img">
                                         <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#7A9E9B"
@@ -371,7 +371,7 @@ ini_set('display_errors', 0);
                                 </div> -->
                             </div>
                             <div class="home-about-box-card" id="home-about-box-card3"
-                                style="background-image: url(./dist/images/5823604740460318374.jpg);">
+                                style="background-image: url(./dist/images/yoga6.png);">
                                 <!-- <div class="home-about-box-content">
                                     <div class="home-about-box-content-img">
                                         <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#7A9E9B"
@@ -724,7 +724,7 @@ ini_set('display_errors', 0);
             </div>
 
             <div class="img-card slide-right">
-                <img src="dist/images/5823604740460318347.jpg" alt="Wellness retreat">
+                <img src="dist/images/yoga7.png" alt="Wellness retreat">
             </div>
         </div>
 

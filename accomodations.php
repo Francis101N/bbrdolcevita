@@ -386,7 +386,7 @@ $success = $_GET['success'] ?? '';
     });
     document.querySelectorAll('.suite-img').forEach(function (carouselElement) {
         const carousel = new bootstrap.Carousel(carouselElement, {
-            interval: 3000,
+            interval: 2000,
             ride: false,
             pause: false,
             wrap: true
