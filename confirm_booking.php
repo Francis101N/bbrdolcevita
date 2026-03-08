@@ -130,13 +130,13 @@ try {
     // === PHPMailer ===
     $mail = new PHPMailer(true);
     $mail->isSMTP();
-    $mail->Host = 'mail.techbyfrancis.com';
+    $mail->Host = 'mail.bbrdolcevita.net';
     $mail->SMTPAuth = true;
-    $mail->Username = 'portfolio@techbyfrancis.com';
-    $mail->Password = 'TECHbyfrancis101$$';
+    $mail->Username = 'info@bbrdolcevita.net';
+    $mail->Password = 'INFO@bbrdolcevita';
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
-    $mail->setFrom('portfolio@techbyfrancis.com', 'bbrdolcevita Notification');
+    $mail->setFrom('info@bbrdolcevita.net', 'bbrdolcevita Notification');
     $mail->isHTML(true);
 
     // Send to Admin

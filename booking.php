@@ -61,14 +61,23 @@
     .banner {
         position: relative;
         width: 100%;
-        height: 300px;
-        /* adjust height as needed */
-        background: url('./dist/images/banner3.jpg') center center/cover no-repeat;
+        height: auto;
         display: flex;
         align-items: center;
+        /* vertically center text */
         justify-content: center;
+        /* horizontally center text */
         color: #fff;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        overflow: hidden;
+    }
+
+    .banner-img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: contain;
+        /* ensures the whole image fits, no cropping */
     }
 
     .banner .overlay {
@@ -78,21 +87,36 @@
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.4);
-        /* dark overlay for text readability */
         z-index: 1;
     }
 
     .banner .container {
-        position: relative;
+        position: absolute;
+        /* place container over image */
         z-index: 2;
         text-align: center;
+        padding: 0 15px;
     }
 
     .banner-head {
-        font-size: 2.5rem;
+        font-size: 3rem;
         font-weight: 700;
         letter-spacing: 1px;
         text-transform: uppercase;
+    }
+
+    /* Tablet */
+    @media (max-width: 992px) {
+        .banner-head {
+            font-size: 2.5rem;
+        }
+    }
+
+    /* Mobile */
+    @media (max-width: 576px) {
+        .banner-head {
+            font-size: 1.8rem;
+        }
     }
 
     .card {
@@ -159,20 +183,31 @@
     .card {
         background-color: #ffffff;
     }
+
+    /* Make mobile cart icon white */
+    @media (max-width: 767.98px) {
+        .d-md-none svg path {
+            stroke: #ffffff !important;
+        }
+
+        .d-md-none svg circle {
+            fill: #ffffff !important;
+        }
+    }
 </style>
 
 <body>
     <?php include 'inc/header.php'; ?>
-
     <div class="banner">
         <div class="overlay"></div>
+        <img src="./dist/images/banner3.jpg" alt="Banner Image" class="banner-img">
         <div class="container">
-            <div class="banner-head">BOOKING FORM </div>
-            <span>BOOK YOUR WELLNESS RETREAT </span><br>
+            <div class="banner-head">BOOKING FORM</div>
+            <span>BOOK YOUR WELLNESS RETREAT</span><br>
             <span>BBR DOLCE VITA, PILATES RETREAT MAY 14th-17th, 2025</span>
         </div>
     </div>
-    <br><br><br>
+    <br>
 
     <main class="container">
         <div class="row justify-content-center">

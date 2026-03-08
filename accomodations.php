@@ -132,14 +132,23 @@ $success = $_GET['success'] ?? '';
     .banner {
         position: relative;
         width: 100%;
-        height: 300px;
-        /* adjust height as needed */
-        background: url('./dist/images/banner3.jpg') center center/cover no-repeat;
+        height: auto;
         display: flex;
         align-items: center;
+        /* vertically center text */
         justify-content: center;
+        /* horizontally center text */
         color: #fff;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        overflow: hidden;
+    }
+
+    .banner-img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: contain;
+        /* ensures the whole image fits, no cropping */
     }
 
     .banner .overlay {
@@ -149,21 +158,36 @@ $success = $_GET['success'] ?? '';
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.4);
-        /* dark overlay for text readability */
         z-index: 1;
     }
 
     .banner .container {
-        position: relative;
+        position: absolute;
+        /* place container over image */
         z-index: 2;
         text-align: center;
+        padding: 0 15px;
     }
 
     .banner-head {
-        font-size: 2.5rem;
+        font-size: 3rem;
         font-weight: 700;
         letter-spacing: 1px;
         text-transform: uppercase;
+    }
+
+    /* Tablet */
+    @media (max-width: 992px) {
+        .banner-head {
+            font-size: 2.5rem;
+        }
+    }
+
+    /* Mobile */
+    @media (max-width: 576px) {
+        .banner-head {
+            font-size: 1.8rem;
+        }
     }
 
     /* Make mobile cart icon white */
@@ -184,6 +208,7 @@ $success = $_GET['success'] ?? '';
 
     <div class="banner">
         <div class="overlay"></div>
+        <img src="./dist/images/banner3.jpg" alt="Banner Image" class="banner-img">
         <div class="container">
             <div class="banner-head">Suites</div>
         </div>

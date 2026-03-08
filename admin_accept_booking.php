@@ -41,11 +41,11 @@ $db->begin_transaction();
 try {
     while ($row = $result->fetch_assoc()) {
         $fullname = $row['full_name'];
-        $email    = $row['email'];
+        $email = $row['email'];
 
         // Collect room info for email
         $booked_rooms[] = "<strong>{$row['suite_name']}</strong> ({$row['room_type']}, Rooms: {$row['rooms_booked']})<br>"
-                          . "Check-In: {$row['check_in']} | Check-Out: {$row['check_out']}";
+            . "Check-In: {$row['check_in']} | Check-Out: {$row['check_out']}";
 
         // Update booking status to Confirmed
         $update_booking = $db->prepare("UPDATE bookings SET booking_status = 'Confirmed' WHERE id = ?");
@@ -84,17 +84,18 @@ try {
     // Send email using PHPMailer
     $mail = new PHPMailer(true);
     $mail->isSMTP();
-    $mail->Host       = 'mail.techbyfrancis.com';
-    $mail->SMTPAuth   = true;
-    $mail->Username   = 'portfolio@techbyfrancis.com';
-    $mail->Password   = 'TECHbyfrancis101$$';
+    $mail->Host = 'mail.bbrdolcevita.net';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'info@bbrdolcevita.net';
+    $mail->Password = 'INFO@bbrdolcevita';
     $mail->SMTPSecure = 'ssl';
-    $mail->Port       = 465;
-    $mail->setFrom('portfolio@techbyfrancis.com', 'bbrdolcevita Notification');
+    $mail->Port = 465;
+    $mail->setFrom('info@bbrdolcevita.net', 'bbrdolcevita Notification');
     $mail->isHTML(true);
     $mail->addAddress($email);
     $mail->Subject = $userSubject;
-    $mail->Body    = $userBody;
+    $mail->Body = $userBody;
+
 
     if (!$mail->send()) {
         throw new Exception("Email could not be sent. Mailer Error: {$mail->ErrorInfo}");

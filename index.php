@@ -39,8 +39,6 @@ ini_set('display_errors', 0);
 
     <script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
 
-
-
     <!-- Main Stylesheet -->
 
     <link href="dist/style.css" rel="stylesheet" type="text/css" media="all">
@@ -132,6 +130,25 @@ ini_set('display_errors', 0);
         transform: translate(0, 0);
     }
 
+    .slider-containerr {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .slidee {
+        position: absolute;
+        width: 100%;
+        height: 500px;
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out;
+    }
+
+    .slidee.active {
+        opacity: 1;
+        position: relative;
+    }
+
     /* Responsive */
     @media (max-width: 900px) {
         .experience-gallery {
@@ -196,7 +213,7 @@ ini_set('display_errors', 0);
 
         .img-card img {
             width: 100%;
-            height: 300px;
+            height: auto;
         }
 
         .about_company-right-row ul li {
@@ -221,78 +238,169 @@ ini_set('display_errors', 0);
             width: 100%;
 
         }
+
+    }
 </style>
 
 <body>
 
     <?php include 'inc/header.php'; ?>
+    <main>
+        <h1><i>BBR DOLCE VITA</i></h1>
+        <h3>A Transformative 4-Day Retreat of Yoga, Lotte Berk Pilates & Serenity.</h3>
+        <h4>May 14–17, 2026 on the Italian Riviera.</h4>
 
-    <div class="home-banner">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner inner row w-100 mx-auto">
-                <div class="carousel-item col-md-12 active">
-                    <div class="card" style="background-image: url(./dist/images/landing-page-image1.jpeg);">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="home-banner-sub">
-                                        A MINDFUL ESCAPE
-                                    </div>
-                                    <div class="home-banner-head">Restore Balance in the Italian Riviera</div>
-                                    <a href="book-your-stay.php">
-                                        <button>Explore the Retreat</button>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 2 -->
-                <div class="carousel-item col-md-12">
-                    <div class="card" style="background-image: url(./dist/images/slider2.png);">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="home-banner-sub">
-                                        MOVEMENT & STILLNESS
-                                    </div>
-                                    <div class="home-banner-head">Yoga & Lotte Berk Pilates, Thoughtfully Curated</div>
-                                    <a href="schedule.php">
-                                        <button>View the Schedule</button>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 3 -->
-                <div class="carousel-item col-md-12">
-                    <div class="card" style="background-image: url(./dist/images/slider3.png);">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-7">
-                                    <div class="home-banner-sub">
-                                        SERENITY & RENEWAL
-                                    </div>
-                                    <div class="home-banner-head">A Retreat Designed for Deep Rest & Renewal</div>
-                                    <a href="accommodations.php">
-                                        <button>Discover Your Stay</button>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div class="slider-container">
+            <button class="slider-btn left">&#10094;</button>
+            <div class="slider-wrapper">
+                <div class="slider">
+                    <img src="./dist/images/landing-page-image1.jpeg" alt="Image 1">
+                    <img src="./dist/images/gallary1.png" alt="Image 2">
+                    <img src="./dist/images/gallery2.png" alt="Image 3">
+                    <img src="./dist/images/WhatsApp Image 2026-03-06 at 9.41.23 AM (1).jpeg" alt="Image 4">
+                    <img src="./dist/images/042470bd-934c-43ca-ae38-a06fa4a7db0f (1).png" alt="Image 5">
                 </div>
             </div>
+            <button class="slider-btn right">&#10095;</button>
         </div>
-    </div>
+    </main>
+
+    <style>
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #777;
+        }
+
+        .slider-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 800px;
+            /* desktop max width */
+            margin: 0 auto;
+        }
+
+        .slider-wrapper {
+            overflow: hidden;
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slider img {
+            width: 100%;
+            /* one image fills wrapper */
+            height: 500px;
+            /* maintain aspect ratio */
+            object-fit: cover;
+            border-radius: 10px;
+            flex-shrink: 0;
+            /* prevent shrinking */
+        }
+
+        .slider-btn {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: #fff;
+            font-size: 1rem;
+            padding: 5px 8px;
+            border-radius: 50%;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            transition: background-color 0.3s;
+        }
+
+        .slider-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .slider-btn.left {
+            left: -30px;
+        }
+
+        .slider-btn.right {
+            right: -30px;
+        }
+
+        @media (max-width: 768px) {
+            .slider-container {
+                max-width: 100%;
+            }
+
+            .slider-btn.left {
+                left: 10px;
+            }
+
+            .slider-btn.right {
+                right: 10px;
+            }
+
+            .slider img {
+                height: 300px;
+            }
+        }
+    </style>
+
+    <script>
+        const slider = document.querySelector('.slider');
+        const images = document.querySelectorAll('.slider img');
+        const prevBtn = document.querySelector('.slider-btn.left');
+        const nextBtn = document.querySelector('.slider-btn.right');
+
+        let index = 0;
+
+        function showSlide() {
+            const width = images[0].clientWidth;
+            slider.style.transform = `translateX(${-index * width}px)`;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            index = (index > 0) ? index - 1 : images.length - 1;
+            showSlide();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            index = (index < images.length - 1) ? index + 1 : 0;
+            showSlide();
+        });
+
+        // Optional: auto-slide every 5 seconds
+        // setInterval(() => {
+        //     index = (index < images.length - 1) ? index + 1 : 0;
+        //     showSlide();
+        // }, 5000);
+    </script>
+    <br><br>
 
     <section>
         <div class="container">
@@ -512,7 +620,8 @@ ini_set('display_errors', 0);
                             </svg>
                         </div>
                         <div class="home-how-row-head">Follow the Flow</div>
-                        <p>Move through the BBR Dolcevita weekly schedule, balancing yoga, pilates, rest, and reflection.</p>
+                        <p>Move through the BBR Dolcevita weekly schedule, balancing yoga, pilates, rest, and
+                            reflection.</p>
                     </div>
                 </div>
 
@@ -788,10 +897,84 @@ ini_set('display_errors', 0);
                     </div>
                 </div>
                 <div class="col-md-5">
-                    <div class="about_company-right carder">
-                        <img src="./dist/images/DSC05899.jpg" class="img-fluid img_carder">
+                    <div class="about_company-right carder slider-containerr">
+                        <img src="./dist/images/landing-page.png" class="img-fluid img_carder slidee active">
+                        <img src="./dist/images/landing2.png" class="img-fluid img_carder slidee">
+                        <img src="./dist/images/landing3.png" class="img-fluid img_carder slidee">
+                        <img src="./dist/images/acco2.png" class="img-fluid img_carder slidee">
+                        <img src="./dist/images/acco3.png" class="img-fluid img_carder slidee">
+                        <img src="./dist/images/acco4.png" class="img-fluid img_carder slidee">
+                        <!-- <img src="./dist/images/acco4.jpeg" class="img-fluid img_carder slidee">
+                        <img src="./dist/images/acco5.jpeg" class="img-fluid img_carder slidee"> -->
                     </div>
                 </div>
+
+                <style>
+                    .slider-containerr {
+                        position: relative;
+                        width: 100%;
+                        overflow: hidden;
+                        border-radius: 15px;
+                        max-width: 500px;
+                        /* adjust as needed */
+                        margin: 0 auto;
+                    }
+
+                    .slider-containerr .slidee {
+                        display: none;
+                        width: 100%;
+                        height: auto;
+                        object-fit: cover;
+                        border-radius: 10px;
+                        transition: opacity 1s ease-in-out;
+                    }
+
+                    .slider-containerr .slidee.active {
+                        display: block;
+                        opacity: 1;
+                    }
+                </style>
+
+                <script>
+                    (function () {
+                        const sliderContainer = document.querySelector('.slider-containerr');
+                        const slides = sliderContainer.querySelectorAll('.slidee');
+                        let currentIndex = 0;
+                        let intervalStarted = false;
+                        let slideInterval;
+
+                        function showSlidee(index) {
+                            slides.forEach((slide) => slide.classList.remove('active'));
+                            slides[index].classList.add('active');
+                        }
+
+                        // initial display
+                        showSlidee(currentIndex);
+
+                        function startSliding() {
+                            if (!intervalStarted) {
+                                intervalStarted = true;
+                                slideInterval = setInterval(() => {
+                                    currentIndex = (currentIndex + 1) % slides.length;
+                                    showSlidee(currentIndex);
+                                }, 4000);
+                            }
+                        }
+
+                        // Intersection Observer to detect when slider is in view
+                        const observer = new IntersectionObserver((entries) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    startSliding();
+                                }
+                            });
+                        }, {
+                            threshold: 0.5 // slider considered in view when 50% visible
+                        });
+
+                        observer.observe(sliderContainer);
+                    })();
+                </script>
             </div>
         </div>
     </div>

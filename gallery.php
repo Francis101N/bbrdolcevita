@@ -75,14 +75,23 @@
     .banner {
         position: relative;
         width: 100%;
-        height: 300px;
-        /* adjust height as needed */
-        background: url('./dist/images/banner3.jpg') center center/cover no-repeat;
+        height: auto;
         display: flex;
         align-items: center;
+        /* vertically center text */
         justify-content: center;
+        /* horizontally center text */
         color: #fff;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        overflow: hidden;
+    }
+
+    .banner-img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: contain;
+        /* ensures the whole image fits, no cropping */
     }
 
     .banner .overlay {
@@ -92,21 +101,36 @@
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.4);
-        /* dark overlay for text readability */
         z-index: 1;
     }
 
     .banner .container {
-        position: relative;
+        position: absolute;
+        /* place container over image */
         z-index: 2;
         text-align: center;
+        padding: 0 15px;
     }
 
     .banner-head {
-        font-size: 2.5rem;
+        font-size: 3rem;
         font-weight: 700;
         letter-spacing: 1px;
         text-transform: uppercase;
+    }
+
+    /* Tablet */
+    @media (max-width: 992px) {
+        .banner-head {
+            font-size: 2.5rem;
+        }
+    }
+
+    /* Mobile */
+    @media (max-width: 576px) {
+        .banner-head {
+            font-size: 1.8rem;
+        }
     }
 
     /* Make mobile cart icon white */
@@ -148,11 +172,11 @@
 
     <div class="banner">
         <div class="overlay"></div>
+        <img src="./dist/images/banner3.jpg" alt="Banner Image" class="banner-img">
         <div class="container">
             <div class="banner-head">Gallery</div>
         </div>
     </div>
-    <br>
 
     <section class="py-5 bg-white">
         <div class="container">
@@ -186,8 +210,7 @@
                 <!-- Image 2 -->
                 <div class="col-md-4 col-sm-6" data-aos="fade-up">
                     <div class="gallery-item">
-                        <img src="./dist/images/0d008f_f44038e7a38547208642a39d04b62a79~mv2.avif"
-                            class="img-fluid rounded-4" alt="Gallery Image 2">
+                        <img src="./dist/images/yoga6.png" class="img-fluid rounded-4" alt="Gallery Image 2">
                     </div>
                 </div>
 
@@ -201,14 +224,14 @@
                 <!-- Image 1 -->
                 <div class="col-md-4 col-sm-6" data-aos="fade-right">
                     <div class="gallery-item">
-                        <img src="./dist/images/DSC05916.jpg" class="img-fluid rounded-4" alt="Gallery Image 1">
+                        <img src="./dist/images/gallary1.png" class="img-fluid rounded-4" alt="Gallery Image 1">
                     </div>
                 </div>
 
                 <!-- Image 2 -->
                 <div class="col-md-4 col-sm-6" data-aos="fade-up">
                     <div class="gallery-item">
-                        <img src="./dist/images/DSC05947.jpg" class="img-fluid rounded-4" alt="Gallery Image 2">
+                        <img src="./dist/images/gallery2.png" class="img-fluid rounded-4" alt="Gallery Image 2">
                     </div>
                 </div>
 
@@ -245,7 +268,7 @@
                 <!-- Image 7 -->
                 <div class="col-md-4 col-sm-6" data-aos="fade-right" data-aos-delay="200">
                     <div class="gallery-item">
-                        <img src="./dist/images/DSC05899.jpg" class="img-fluid rounded-4" alt="Gallery Image 7">
+                        <img src="./dist/images/gallery3.png" class="img-fluid rounded-4" alt="Gallery Image 7">
                     </div>
                 </div>
 
@@ -322,14 +345,12 @@
                 </div>
                 <div class="col-md-4 col-sm-6" data-aos="fade-left" data-aos-delay="300">
                     <div class="gallery-item">
-                        <img src="./dist/images/IMG_5836.jpg"
-                            class="img-fluid rounded-4" alt="Gallery Image 12">
+                        <img src="./dist/images/gallery4.png" class="img-fluid rounded-4" alt="Gallery Image 12">
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6" data-aos="fade-left" data-aos-delay="300">
                     <div class="gallery-item">
-                        <img src="./dist/images/IMG_5837.jpg"
-                            class="img-fluid rounded-4" alt="Gallery Image 12">
+                        <img src="./dist/images/IMG_5837.jpg" class="img-fluid rounded-4" alt="Gallery Image 12">
                     </div>
                 </div>
 
@@ -337,7 +358,7 @@
 
         </div>
     </section>
-
+    
     <?php include 'inc/footer.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
