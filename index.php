@@ -605,7 +605,7 @@ $cart_count = $row['total_items'] ?? 0;
 
                             <!-- Yoga -->
                             <div class="home-about-box-card" id="home-about-box-card1"
-                                style="background-image: url(./dist/images/DSC05913.jpg);">
+                                style="background-image: url(./dist/images/updated_three.png);">
                                 <!-- <div class="home-about-box-content">
                                     <div class="home-about-box-content-img">
                                         <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#7A9E9B"
@@ -623,7 +623,7 @@ $cart_count = $row['total_items'] ?? 0;
                             </div>
 
                             <div class="home-about-box-card" id="home-about-box-card2"
-                                style="background-image: url(./dist/images/yoga5.png);">
+                                style="background-image: url(./dist/images/yoga6.png);">
                                 <!-- <div class="home-about-box-content">
                                     <div class="home-about-box-content-img">
                                         <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#7A9E9B"
@@ -641,21 +641,6 @@ $cart_count = $row['total_items'] ?? 0;
                                 </div> -->
                             </div>
                             <div class="home-about-box-card" id="home-about-box-card3"
-                                style="background-image: url(./dist/images/yoga6.png);">
-                                <!-- <div class="home-about-box-content">
-                                    <div class="home-about-box-content-img">
-                                        <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#7A9E9B"
-                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M12 20c-3-2-6-5-6-9 3 0 5 2 6 4 1-2 3-4 6-4 0 4-3 7-6 9z" />
-                                            <path d="M12 15v-5" />
-                                        </svg>
-                                    </div>
-                                    <div class="home-about-box-content-head">Serenity & Restoration</div>
-                                    <p>Intentional rest to restore harmony.</p>
-                                    <a href="serenity.php">Discover more &gt;&gt;</a>
-                                </div> -->
-                            </div>
-                            <div class="home-about-box-card" id="home-about-box-card4"
                                 style="background-image: url(./dist/images/5823604740460318301.jpg);">
                                 <!-- <div class="home-about-box-content">
                                     <div class="home-about-box-content-img">
@@ -670,6 +655,7 @@ $cart_count = $row['total_items'] ?? 0;
                                     <a href="serenity.php">Discover more &gt;&gt;</a>
                                 </div> -->
                             </div>
+                           
 
                         </div>
                     </div>

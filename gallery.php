@@ -254,7 +254,7 @@
                 <!-- Image 5 -->
                 <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="gallery-item">
-                        <img src="./dist/images/DSC06023.jpg" class="img-fluid rounded-4" alt="Gallery Image 5">
+                        <img src="./dist/images/WhatsApp Image 2026-03-06 at 9.41.23 AM.jpeg" class="img-fluid rounded-4" alt="Gallery Image 5">
                     </div>
                 </div>
 

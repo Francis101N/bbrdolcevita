@@ -283,7 +283,7 @@ ini_set('display_errors', 0);
                 <p>18:00 - 19:00 - Yoga with Lucy </p>
                 <p>19:30-20:30 - Dinner</p>
                 <p>20:30-21:30 - time to telax and group sharing </p>
-                <p>21:00 - Retire to your suites</p>
+                <p>21:30 - Retire to your suites</p>
             </div>
 
             <div id="day-4" class="day-content">
