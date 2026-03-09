@@ -1046,12 +1046,12 @@ $cart_count = $row['total_items'] ?? 0;
                 </div>
                 <div class="col-md-5">
                     <div class="about_company-right carder slider-containerr">
-                        <img src="./dist/images/landing-page.png" class="img-fluid img_carder slidee active">
+                        <img src="./dist/images/one.png" class="img-fluid img_carder slidee active">
                         <img src="./dist/images/landing2.png" class="img-fluid img_carder slidee">
                         <img src="./dist/images/landing3.png" class="img-fluid img_carder slidee">
                         <img src="./dist/images/acco2.png" class="img-fluid img_carder slidee">
                         <img src="./dist/images/acco3.png" class="img-fluid img_carder slidee">
-                        <img src="./dist/images/acco4.png" class="img-fluid img_carder slidee">
+                        <img src="./dist/images/two.png" class="img-fluid img_carder slidee">
                         <!-- <img src="./dist/images/acco4.jpeg" class="img-fluid img_carder slidee">
                         <img src="./dist/images/acco5.jpeg" class="img-fluid img_carder slidee"> -->
                     </div>

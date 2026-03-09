@@ -374,57 +374,6 @@
                     <p><b>Phone: </b>+33 650 398 905 | +44 7777 944040</p>
 
                 </div>
-                <form method="post" action="proc_booking_consent.php" class="mt-4">
-
-                    <div class="card border-0 shadow-sm rounded-4 p-4">
-
-                        <!-- Consent Checkboxes -->
-                        <div class="mb-4">
-
-                            <div class="form-check mb-3">
-                                <input class="form-check-input" type="checkbox" name="privacy_consent"
-                                    id="privacyConsent" required>
-
-                                <label class="form-check-label" for="privacyConsent">
-                                    I consent to <strong>BBR Dolce Vita</strong> processing my personal data
-                                    as explained in the Privacy Policy.
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="marketing_consent"
-                                    id="marketingConsent" required>
-
-                                <label class="form-check-label" for="marketingConsent">
-                                    I would like to receive marketing communications about related retreats
-                                    and exclusive offers <span class="text-muted">(optional)</span>.
-                                </label>
-                            </div>
-
-                        </div>
-
-                        <hr class="my-4">
-
-                        <!-- Join Us Section -->
-                        <div class="text-center px-md-4">
-
-                            <h5 class="fw-bold mb-3 text-uppercase">Join Us</h5>
-
-                            <p class="text-muted mb-4">
-                                Join us for a soul-nourishing retreat where you can refresh, recharge,
-                                and step into pure bliss at our exclusive Pilates & Yoga retreat on
-                                the Italian Riviera.
-                            </p>
-
-                            <button type="submit" class="btn btn-primary btn-lg px-5 rounded-pill">
-                                Save Booking Information
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </form>
 
             </div>
         </div>
