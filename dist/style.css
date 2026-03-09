@@ -23,15 +23,6 @@ body {
     height: auto;
 }
 
-#navbar {
-    font-size: 14px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: 100%;
-    border-bottom: 1px solid #FFFFFF;
-    background-color: #4e788f;
-}
-
 #navbar .nav-item {
     padding: 7px 10px;
     transition: .3s all;

@@ -12,7 +12,7 @@ $result = $stmt->get_result();
 $row = $result->fetch_assoc();
 $cart_count = $row['total_items'] ?? 0;
 ?>
-<nav class="navbar navbar-expand-md sticky-top navbar-light" id="navbar">
+<nav class="navbar navbar-expand-md" id="navbar">
   <div class="container">
 
     <a class="navbar-brand" href="./">

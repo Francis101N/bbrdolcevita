@@ -1,6 +1,16 @@
 <?php
 session_start();
-ini_set('display_errors', 0);
+include './connection/connect.php';
+
+$session_id = session_id();
+
+// Count number of items in cart for this session
+$stmt = $db->prepare("SELECT COUNT(*) AS total_items FROM cart WHERE session_id = ?");
+$stmt->bind_param("s", $session_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
+$cart_count = $row['total_items'] ?? 0;
 
 ?>
 <!DOCTYPE html>
@@ -243,22 +253,168 @@ ini_set('display_errors', 0);
 </style>
 
 <body>
+    <nav class="navbar navbar-expand-md mb-3" id="navbar" style="background-color: #4e788f;">
+        <div class="container">
 
-    <?php include 'inc/header.php'; ?>
+            <a class="navbar-brand" href="./">
+                <img src="./dist/images/BBR_logo-removebg-preview-removebg-preview.png" class="img-fluid"
+                    style="width: 100px;">
+            </a>
+
+            <!-- Right Side (Mobile: Cart + Toggler) -->
+            <div class="d-flex align-items-center">
+
+                <!-- Cart Icon (VISIBLE ONLY ON SMALL SCREENS) -->
+                <a href="cart" class="nav-link d-md-none position-relative mr-2 p-0">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        style="cursor:pointer;">
+                        <path d="M3 3H5L6.5 14H18.5L21 6H6" stroke="#1a9acd" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <circle cx="9" cy="20" r="1.5" fill="#1a9acd" />
+                        <circle cx="18" cy="20" r="1.5" fill="#1a9acd" />
+                    </svg>
+
+                    <?php if ($cart_count > 0): ?>
+                        <span
+                            class="badge bg-danger rounded-circle position-absolute d-flex align-items-center justify-content-center"
+                            style="font-size: 0.7rem; width: 18px; height: 18px; top: -6px; right: -6px;">
+                            <?= $cart_count ?>
+                        </span>
+                    <?php endif; ?>
+                </a>
+
+                <!-- Toggler -->
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect y="5" width="30" height="3" fill="#1a9acd" />
+                        <rect y="13.5" width="30" height="3" fill="#1a9acd" />
+                        <rect y="22" width="30" height="3" fill="#1a9acd" />
+                    </svg>
+                </button>
+
+            </div>
+
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="retreats">Retreats</a></li>
+                    <li class="nav-item"><a class="nav-link" href="schedule">Schedule</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="gallery">Gallary</a></li> -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="retreatDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Bookings
+                        </a>
+                        <ul class="dropdown-menu shadow-sm border-0 rounded-3" aria-labelledby="retreatDropdown">
+                            <li>
+                                <a class="dropdown-item" href="accomodations">
+                                    Accommodations
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="booking">
+                                    Retreat Booking
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Cart Icon (VISIBLE ONLY ON DESKTOP) -->
+                    <li class="nav-item d-none d-md-flex align-items-center mr-3 position-relative">
+                        <a href="cart" class="nav-link p-0 position-relative">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" style="cursor:pointer;">
+                                <path d="M3 3H5L6.5 14H18.5L21 6H6" stroke="#1a9acd" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <circle cx="9" cy="20" r="1.5" fill="#1a9acd" />
+                                <circle cx="18" cy="20" r="1.5" fill="#1a9acd" />
+                            </svg>
+
+                            <?php if ($cart_count > 0): ?>
+                                <span class="badge bg-danger rounded-circle position-absolute" style="font-size: 0.7rem; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center;
+                         top: -6px; right: -6px;">
+                                    <?= $cart_count ?>
+                                </span>
+                            <?php endif; ?>
+                        </a>
+                    </li>
+
+                    <li class="nav-item2">
+                        <a class="nav-link2" href="contact"><button>Contact Us</button></a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
     <main>
-        <h1><i>BBR DOLCE VITA</i></h1>
-        <h3>A Transformative 4-Day Retreat of Yoga, Lotte Berk Pilates & Serenity.</h3>
-        <h4>May 14–17, 2026 on the Italian Riviera.</h4>
+        <h1 style="color:#6e6e6e; font-size:3rem;"><i>BBR DOLCE VITA</i></h1>
+
+        <h3 style="color:#7a7a7a; font-size:1.8rem;">
+            A Transformative 4-Day Retreat of Yoga, Lotte Berk Pilates & Serenity.
+        </h3>
+
+        <h4 style="color:#8a8a8a; font-size:1.2rem;">
+            May 14–17, 2026 on the Italian Riviera.
+        </h4>
 
         <div class="slider-container">
             <button class="slider-btn left">&#10094;</button>
             <div class="slider-wrapper">
                 <div class="slider">
-                    <img src="./dist/images/landing-page-image1.jpeg" alt="Image 1">
-                    <img src="./dist/images/gallary1.png" alt="Image 2">
-                    <img src="./dist/images/gallery2.png" alt="Image 3">
-                    <img src="./dist/images/WhatsApp Image 2026-03-06 at 9.41.23 AM (1).jpeg" alt="Image 4">
-                    <img src="./dist/images/042470bd-934c-43ca-ae38-a06fa4a7db0f (1).png" alt="Image 5">
+                    <div class="slide">
+                        <img src="./dist/images/landing-page-image1.jpeg" alt="Image 1">
+                        <p>Bird's eye view of our luxury retreat nestled in the Italian Riviera</p>
+                    </div>
+
+                    <div class="slide">
+                        <img src="./dist/images/landing02.png" alt="Image 2">
+                        <p>Al fresco dining with panoramic views of the Mediterranean</p>
+                    </div>
+
+                    <div class="slide">
+                        <img src="./dist/images/landing03.png" alt="Image 3">
+                        <p>Our enchanting pool area with a traditional swimming pool surrounded by lush Mediterranean
+                            gardens </p>
+                    </div>
+                    <div class="slide">
+                        <img src="./dist/images/landing04.png" alt="Image 3">
+                        <p>Our serene Oasi Pool with spectacular mountain views and Mediterranean landscaping. </p>
+                    </div>
+                    <div class="slide">
+                        <img src="./dist/images/landing05.png" alt="Image 3">
+                        <p>Our stylishly appointed living spaces blend comfort with Mediterranean charm . </p>
+                    </div>
+                    <div class="slide">
+                        <img src="./dist/images/landing06.png" alt="Image 3">
+                        <p>Unique lounging spaces with artistic touches and comfortable furnishings. </p>
+                    </div>
+                    <div class="slide">
+                        <img src="./dist/images/landing07.png" alt="Image 3">
+                        <p>Enchanting garden details create magical moments throughout the property. </p>
+                    </div>
+                    <div class="slide">
+                        <img src="./dist/images/landing08.png" alt="Image 3">
+                        <p>Tranquil moments in our serene garden landscape</p>
+                    </div>
+                    <div class="slide">
+                        <img src="./dist/images/landing09.png" alt="Image 3">
+                        <p>Relaxation spaces that connect you with nature's beauty.</p>
+                    </div>
+                    <div class="slide">
+                        <img src="./dist/images/landing10.png" alt="Image 3">
+                        <p>Soak up the sun on your private terrace with comfortable loungers and beautiful views.</p>
+                    </div>
+                    <div class="slide">
+                        <img src="./dist/images/landing11.png" alt="Image 3">
+                        <p>Mesmerizing Mediterranean sunsets that paint the sky.</p>
+                    </div>
                 </div>
             </div>
             <button class="slider-btn right">&#10095;</button>
@@ -314,15 +470,22 @@ ini_set('display_errors', 0);
             transition: transform 0.5s ease-in-out;
         }
 
+        .slide {
+            min-width: 100%;
+            text-align: center;
+        }
+
         .slider img {
             width: 100%;
-            /* one image fills wrapper */
             height: 500px;
-            /* maintain aspect ratio */
             object-fit: cover;
             border-radius: 10px;
-            flex-shrink: 0;
-            /* prevent shrinking */
+        }
+
+        .slide p {
+            margin-top: 10px;
+            font-size: 15px;
+            color: #555;
         }
 
         .slider-btn {
@@ -368,37 +531,36 @@ ini_set('display_errors', 0);
             .slider img {
                 height: 300px;
             }
+
+            .slide p {
+                font-size: 14px;
+                padding: 0 10px;
+            }
         }
     </style>
 
     <script>
         const slider = document.querySelector('.slider');
-        const images = document.querySelectorAll('.slider img');
+        const slides = document.querySelectorAll('.slide');
         const prevBtn = document.querySelector('.slider-btn.left');
         const nextBtn = document.querySelector('.slider-btn.right');
 
         let index = 0;
 
         function showSlide() {
-            const width = images[0].clientWidth;
+            const width = slides[0].clientWidth;
             slider.style.transform = `translateX(${-index * width}px)`;
         }
 
-        prevBtn.addEventListener('click', () => {
-            index = (index > 0) ? index - 1 : images.length - 1;
-            showSlide();
-        });
-
         nextBtn.addEventListener('click', () => {
-            index = (index < images.length - 1) ? index + 1 : 0;
+            index = (index + 1) % slides.length;
             showSlide();
         });
 
-        // Optional: auto-slide every 5 seconds
-        // setInterval(() => {
-        //     index = (index < images.length - 1) ? index + 1 : 0;
-        //     showSlide();
-        // }, 5000);
+        prevBtn.addEventListener('click', () => {
+            index = (index - 1 + slides.length) % slides.length;
+            showSlide();
+        });
     </script>
     <br><br>
 
