@@ -59,6 +59,29 @@ $cart_count = $row['total_items'] ?? 0;
     </script>
 </head>
 <style>
+    .retreat-exp-sliderrr {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .retreat-exp-sliderrr img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        /* prevents cropping */
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+
+    .retreat-exp-sliderrr img.active {
+        opacity: 1;
+        position: relative;
+    }
+
     .experience {
         padding: 6rem 4rem;
         max-width: 1400px;
@@ -600,66 +623,79 @@ $cart_count = $row['total_items'] ?? 0;
         <div class="home-about">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="home-about-left">
-                        <div class="home-about-box">
-
-                            <!-- Yoga -->
-                            <div class="home-about-box-card" id="home-about-box-card1"
-                                style="background-image: url(./dist/images/updated_three.png);">
-                                <!-- <div class="home-about-box-content">
-                                    <div class="home-about-box-content-img">
-                                        <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#7A9E9B"
-                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                            <circle cx="12" cy="5" r="2" />
-                                            <path d="M12 7v5" />
-                                            <path d="M5 12c2-2 4-3 7-3s5 1 7 3" />
-                                            <path d="M3 20h18" />
-                                        </svg>
-                                    </div>
-                                    <div class="home-about-box-content-head">Yoga Practice</div>
-                                    <p>Daily movement for balance and calm.</p>
-                                    <a href="yoga.php">Discover more &gt;&gt;</a>
-                                </div> -->
-                            </div>
-
-                            <div class="home-about-box-card" id="home-about-box-card2"
-                                style="background-image: url(./dist/images/yoga6.png);">
-                                <!-- <div class="home-about-box-content">
-                                    <div class="home-about-box-content-img">
-                                        <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#7A9E9B"
-                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                            <rect x="3" y="10" width="18" height="4" rx="2" />
-                                            <path d="M6 10V7" />
-                                            <path d="M18 10V7" />
-                                            <path d="M6 14v3" />
-                                            <path d="M18 14v3" />
-                                        </svg>
-                                    </div>
-                                    <div class="home-about-box-content-head">Lotte Berk Pilates</div>
-                                    <p>Low-impact sessions to sculpt and energize.</p>
-                                    <a href="pilates.php">Discover more &gt;&gt;</a>
-                                </div> -->
-                            </div>
-                            <div class="home-about-box-card" id="home-about-box-card3"
-                                style="background-image: url(./dist/images/5823604740460318301.jpg);">
-                                <!-- <div class="home-about-box-content">
-                                    <div class="home-about-box-content-img">
-                                        <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#7A9E9B"
-                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M12 20c-3-2-6-5-6-9 3 0 5 2 6 4 1-2 3-4 6-4 0 4-3 7-6 9z" />
-                                            <path d="M12 15v-5" />
-                                        </svg>
-                                    </div>
-                                    <div class="home-about-box-content-head">Serenity & Restoration</div>
-                                    <p>Intentional rest to restore harmony.</p>
-                                    <a href="serenity.php">Discover more &gt;&gt;</a>
-                                </div> -->
-                            </div>
-                           
-
-                        </div>
+                    <div class="retreat-exp-slider slider-containerr-2">
+                        <img src="./dist/images/updated_three.png" class="img-fluid img_carder slidee active">
+                        <img src="./dist/images/yoga6.png" class="img-fluid img_carder slidee">
+                        <img src="./dist/images/3.png" class="img-fluid img_carder slidee">
                     </div>
                 </div>
+
+                <style>
+                    /* Second slider styling */
+                    .slider-containerr-2 {
+                        position: relative;
+                        width: 100%;
+                        overflow: hidden;
+                        border-radius: 15px;
+                        max-width: 600px;
+                        /* adjust if needed */
+                        margin: 0 auto;
+                    }
+
+                    .slider-containerr-2 .slidee {
+                        display: none;
+                        width: 100%;
+                        height: auto;
+                        object-fit: contain;
+                        /* no cropping */
+                        border-radius: 10px;
+                        transition: opacity 1s ease-in-out;
+                    }
+
+                    .slider-containerr-2 .slidee.active {
+                        display: block;
+                        opacity: 1;
+                    }
+                </style>
+
+                <script>
+                    (function () {
+                        const sliderContainer2 = document.querySelector('.slider-containerr-2');
+                        const slides2 = sliderContainer2.querySelectorAll('.slidee');
+                        let currentIndex2 = 0;
+                        let intervalStarted2 = false;
+                        let slideInterval2;
+
+                        function showSlide2(index) {
+                            slides2.forEach(slide => slide.classList.remove('active'));
+                            slides2[index].classList.add('active');
+                        }
+
+                        // initial display
+                        showSlide2(currentIndex2);
+
+                        function startSliding2() {
+                            if (!intervalStarted2) {
+                                intervalStarted2 = true;
+                                slideInterval2 = setInterval(() => {
+                                    currentIndex2 = (currentIndex2 + 1) % slides2.length;
+                                    showSlide2(currentIndex2);
+                                }, 4000); // every 4 seconds
+                            }
+                        }
+
+                        // Start sliding when slider is in view
+                        const observer2 = new IntersectionObserver((entries) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    startSliding2();
+                                }
+                            });
+                        }, { threshold: 0.5 });
+
+                        observer2.observe(sliderContainer2);
+                    })();
+                </script>
 
                 <!-- RIGHT CONTENT -->
                 <div class="col-md-6">
