@@ -354,13 +354,13 @@ $cart_count = $row['total_items'] ?? 0;
         </div>
     </nav>
     <main>
-        <h1 style="color:#6e6e6e; font-size:3rem;"><i>BBR DOLCE VITA</i></h1>
+        <h1 style="color:black; font-size:3rem;"><i>BBR DOLCE VITA</i></h1>
 
-        <h3 style="color:#7a7a7a; font-size:1.8rem;">
+        <h3 style="color:black; font-size:1.8rem;">
             A Transformative 4-Day Retreat of Yoga, Lotte Berk Pilates & Serenity.
         </h3>
 
-        <h4 style="color:#8a8a8a; font-size:1.2rem;">
+        <h4 style="color:black; font-size:1.2rem;">
             May 14–17, 2026 on the Italian Riviera.
         </h4>
 
@@ -977,11 +977,11 @@ $cart_count = $row['total_items'] ?? 0;
             </div>
 
             <div class="img-card slide-up highlight">
-                <img src="dist/images/5823604740460318301.jpg" alt="Yoga retreat">
+                <img src="dist/images/yoga7.png" alt="Yoga retreat">
             </div>
 
             <div class="img-card slide-right">
-                <img src="dist/images/yoga7.png" alt="Wellness retreat">
+                <img src="dist/images/right.png" alt="Wellness retreat">
             </div>
         </div>
 
